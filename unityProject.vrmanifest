@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.robottelekinesis.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\ImmersiveAnalytics\\RobotTelekinesis\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "RobotTelekinesis [Testing]"
+        }
+      }
+    }
+  ]
+}

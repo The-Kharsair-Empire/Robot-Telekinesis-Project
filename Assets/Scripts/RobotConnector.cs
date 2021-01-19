@@ -53,7 +53,6 @@ public class RobotConnector : MonoBehaviour
             Debug.Log("decoded byte info: " + response);
             Debug.Log("String Length: " + response.Length);
         }
-        
         return response;
     }
 
@@ -61,7 +60,6 @@ public class RobotConnector : MonoBehaviour
     {
         string cmd = string.Format("movel(p[{0}, {1}, {2}, {3}, {4}, {5}], {6}, {7}, {8}, {9})\n", x, y, z, rx, ry, rz, acc, vel, t, r);
         sendCommand(cmd);
-       
      
     }
 
@@ -72,9 +70,9 @@ public class RobotConnector : MonoBehaviour
 
         byte[] slice = new byte[takeLength];
 
-        for (int i = 0; i <  takeLength; i++)
+        for (int i = 0; i < takeLength; i++)
             slice[i] = data[startIndex + i];
-
+  
 
         byte[] lEndian = new byte[takeLength];
         for (int i = 0; i < takeLength; i += 8)
@@ -87,14 +85,14 @@ public class RobotConnector : MonoBehaviour
 
         for (int i = 0; i < values.Length; i++)
             values[i] = BitConverter.ToDouble(lEndian, i * 8);
-        
+
         return values;
     }
 
     public double[] get_current_tcp()
     {
         double[] tcp_pose = RecvDoubleValFromRobot(444, 48);
-        Debug.Log(tcp_pose[0] + ",  " + tcp_pose[1] + ",  " + tcp_pose[2] + ",  " + tcp_pose[3] + ",  " + tcp_pose[4] + ",  " + tcp_pose[5]);
+        print(tcp_pose[0] + ",  " + tcp_pose[1] + ",  " + tcp_pose[2] + ",  " + tcp_pose[3] + ",  " + tcp_pose[4] + ",  " + tcp_pose[5]);
         return tcp_pose;
 
     }
@@ -105,6 +103,11 @@ public class RobotConnector : MonoBehaviour
         finish();
         
     }
+/*
+    public void FLU()
+    {
+
+    }*/
 
     void finish()
     {
