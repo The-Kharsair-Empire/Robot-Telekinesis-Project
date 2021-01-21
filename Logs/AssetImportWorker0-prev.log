@@ -15,11 +15,11 @@ C:/Users/ImmersiveAnalytics/RobotTelekinesis
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61631
+50530
 Successfully changed project path to: C:/Users/ImmersiveAnalytics/RobotTelekinesis
 C:/Users/ImmersiveAnalytics/RobotTelekinesis
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 28.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 29.83 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.0b9 (ef2968fa77ae)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/Resources/UnitySubsystems
@@ -35,387 +35,59 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56772
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001443 seconds.
+Registered in 0.001283 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 23.10 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 27.56 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.007 seconds
+- Completed reload, in  0.912 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001448 seconds.
+Registered in 0.001810 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.31 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.833 seconds
+- Completed reload, in  0.753 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1180 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 60.9 MB.
-System memory in use after: 61.0 MB.
+Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.2 MB.
+System memory in use after: 71.3 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1621.
-Total: 2.529900 ms (FindLiveObjects: 0.343200 ms CreateObjectMapping: 0.060800 ms MarkObjects: 2.029400 ms  DeleteObjects: 0.094700 ms)
-
-========================================================================
-Received Import Request.
-  path: Packages/com.unity.xr.management
-  artifactKey: Guid(7261f87f4da69cdd49931374cabce6bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management using Guid(7261f87f4da69cdd49931374cabce6bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca473ac99073a681fec4bd19398c5661') in 0.009085 seconds
-  Import took 0.012089 seconds .
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1856.
+Total: 1.776900 ms (FindLiveObjects: 0.317200 ms CreateObjectMapping: 0.061100 ms MarkObjects: 1.341900 ms  DeleteObjects: 0.055600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000216 seconds.
-  path: Packages/com.unity.ide.visualstudio
-  artifactKey: Guid(9db636ca49aa246019dd93b7c8b689f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.ide.visualstudio using Guid(9db636ca49aa246019dd93b7c8b689f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dea922fc0c43185291afd56bdb0746a8') in 0.006620 seconds
-  Import took 0.009035 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000264 seconds.
-  path: Packages/com.unity.subsystemregistration
-  artifactKey: Guid(9b97b950bd7976cfa3f5fa2e7f0383b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.subsystemregistration using Guid(9b97b950bd7976cfa3f5fa2e7f0383b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdd99166299fb8c0227ec340d952e49b') in 0.009699 seconds
-  Import took 0.012962 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000294 seconds.
-  path: Packages/com.unity.ext.nunit
-  artifactKey: Guid(25a477c2f24db8778a4179421a32cc21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.ext.nunit using Guid(25a477c2f24db8778a4179421a32cc21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21346b4c3c4e6164a0cdcb55ea42e0e5') in 0.008565 seconds
-  Import took 0.010852 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000248 seconds.
-  path: Packages/com.unity.collab-proxy
-  artifactKey: Guid(1adad61bfb44214ee3e887b5febc4396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.collab-proxy using Guid(1adad61bfb44214ee3e887b5febc4396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '183a97eb0976b04646db79d75bb0731f') in 0.008071 seconds
-  Import took 0.010769 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Packages/com.unity.ide.vscode
-  artifactKey: Guid(1c61a04a5b7737c4d16673d64be4194e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.ide.vscode using Guid(1c61a04a5b7737c4d16673d64be4194e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e79fd1435951ef7a47fcd4f0627a43e4') in 0.006727 seconds
-  Import took 0.009517 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000298 seconds.
-  path: Packages/com.unity.test-framework
-  artifactKey: Guid(6023f2b823fc19b4e4a90875281ff117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.test-framework using Guid(6023f2b823fc19b4e4a90875281ff117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '058709d93c98b41327641075f5481fab') in 0.007703 seconds
-  Import took 0.010950 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000275 seconds.
-  path: Packages/com.unity.ugui
-  artifactKey: Guid(8f7652e09069a1943278893d4264401e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.ugui using Guid(8f7652e09069a1943278893d4264401e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0be150d48076c53e31b5e1c0e934b6fd') in 0.007008 seconds
-  Import took 0.009473 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000244 seconds.
-  path: Packages/com.unity.ide.rider
-  artifactKey: Guid(ea5aa18a49e4f29d74984ea0ea11a238) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.ide.rider using Guid(ea5aa18a49e4f29d74984ea0ea11a238) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b470aca5a3e870093252bd805c6d5ea') in 0.006746 seconds
-  Import took 0.009088 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000326 seconds.
-  path: Packages/com.unity.textmeshpro
-  artifactKey: Guid(cabaa672b0e3ee91fa7b6da4daab7970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.textmeshpro using Guid(cabaa672b0e3ee91fa7b6da4daab7970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e272a5187fecc0892c9a218ccfc84034') in 0.007712 seconds
-  Import took 0.010435 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000283 seconds.
-  path: Packages/com.unity.timeline
-  artifactKey: Guid(a4610cf559d77b9f256416d9ccaeac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.timeline using Guid(a4610cf559d77b9f256416d9ccaeac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '490bb4eb0e0a05792e5ed31aa7fe5cf2') in 0.007112 seconds
-  Import took 0.009583 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Packages/com.unity.textmeshpro
-  artifactKey: Guid(cabaa672b0e3ee91fa7b6da4daab7970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.textmeshpro using Guid(cabaa672b0e3ee91fa7b6da4daab7970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e272a5187fecc0892c9a218ccfc84034') in 0.003481 seconds
-  Import took 0.006373 seconds .
+  path: Assets/Scripts/UnityServer.cs
+  artifactKey: Guid(82b98608d0c1e4947a888157fb3036c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UnityServer.cs using Guid(82b98608d0c1e4947a888157fb3036c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd7939630339bb09e85147bbf714ed06') in 0.018836 seconds
+  Import took 0.021511 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000230 seconds.
-  path: Packages/com.unity.xr.legacyinputhelpers
-  artifactKey: Guid(9f273d1aeb919930a9018672d8e70f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.legacyinputhelpers using Guid(9f273d1aeb919930a9018672d8e70f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4161ec26585da6b78eca14e816f23c4d') in 0.007065 seconds
-  Import took 0.009771 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000381 seconds.
-  path: Packages/com.unity.timeline
-  artifactKey: Guid(a4610cf559d77b9f256416d9ccaeac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.timeline using Guid(a4610cf559d77b9f256416d9ccaeac55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '490bb4eb0e0a05792e5ed31aa7fe5cf2') in 0.003139 seconds
-  Import took 0.006098 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017116 seconds.
-  path: Packages/com.unity.xr.legacyinputhelpers
-  artifactKey: Guid(9f273d1aeb919930a9018672d8e70f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.legacyinputhelpers using Guid(9f273d1aeb919930a9018672d8e70f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4161ec26585da6b78eca14e816f23c4d') in 0.002552 seconds
-  Import took 0.005160 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.761433 seconds.
-  path: Packages/com.unity.xr.management/Editor
-  artifactKey: Guid(dcfbcd3f5f6514657924b8e122d97765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor using Guid(dcfbcd3f5f6514657924b8e122d97765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '894c4906842661cefc0b051b0dad0218') in 0.008196 seconds
-  Import took 0.010427 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000239 seconds.
-  path: Packages/com.unity.xr.management/Runtime
-  artifactKey: Guid(4fb10c2185e1347c4bef41feca4a8845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Runtime using Guid(4fb10c2185e1347c4bef41feca4a8845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8d5a991993984cb0df7feb0e7a369e0') in 0.007835 seconds
-  Import took 0.010221 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000327 seconds.
-  path: Packages/com.unity.xr.management/LICENSE.md
-  artifactKey: Guid(abd74e060b6444ffe880023f0bc02e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/LICENSE.md using Guid(abd74e060b6444ffe880023f0bc02e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41b74406b69eeff88327aae1308e1225') in 0.039175 seconds
-  Import took 0.041356 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000213 seconds.
-  path: Packages/com.unity.xr.management/package.json
-  artifactKey: Guid(a8437ae6df3ab4de78c661f8e1148bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/package.json using Guid(a8437ae6df3ab4de78c661f8e1148bbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dec83d57edd2f85c22f62af70a2d7f45') in 0.017805 seconds
-  Import took 0.020086 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Packages/com.unity.xr.management/CHANGELOG.md
-  artifactKey: Guid(1aeaeae5ea31643f89c63fb687563e05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/CHANGELOG.md using Guid(1aeaeae5ea31643f89c63fb687563e05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d2bb803beaed909b2c7f1d364595143') in 0.014212 seconds
-  Import took 0.016650 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000253 seconds.
-  path: Packages/com.unity.xr.management/README.md
-  artifactKey: Guid(88d2132b5a4df4c659790dc2260104b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/README.md using Guid(88d2132b5a4df4c659790dc2260104b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fa64ccd771a68ea825de23f653a181c') in 0.013454 seconds
-  Import took 0.016197 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000242 seconds.
-  path: Packages/com.unity.xr.management/Tests
-  artifactKey: Guid(4fadb9d2c47be4b2587eec5da859310c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Tests using Guid(4fadb9d2c47be4b2587eec5da859310c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354c17d86ebe7078181acb6530dc6e93') in 0.006996 seconds
-  Import took 0.009419 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.662652 seconds.
-  path: Packages/com.unity.xr.management/Editor/Legacy
-  artifactKey: Guid(aff61164ba938ed46b04628a99c91e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/Legacy using Guid(aff61164ba938ed46b04628a99c91e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4405732ad2e7480098b85b143093a835') in 0.007369 seconds
-  Import took 0.009716 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000272 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRConstants.cs
-  artifactKey: Guid(15f789f4848004249b8e67d3fcf33a78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRConstants.cs using Guid(15f789f4848004249b8e67d3fcf33a78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e361514e5b73108eea6fc43ed6119b7e') in 0.009595 seconds
-  Import took 0.012005 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRLoaderInfoManager.cs
-  artifactKey: Guid(ae3d005fd595c0841ac79b5c0d7fcb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRLoaderInfoManager.cs using Guid(ae3d005fd595c0841ac79b5c0d7fcb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b97f9b3569e576b06d79edd37a5f2c91') in 0.008540 seconds
-  Import took 0.010622 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000266 seconds.
-  path: Packages/com.unity.xr.management/Editor/TypeLoaderExtensions.cs
-  artifactKey: Guid(28c8363a46afc475bb1a7901a0dd2ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/TypeLoaderExtensions.cs using Guid(28c8363a46afc475bb1a7901a0dd2ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec96b78db5d089789d456e969bf0e91d') in 0.006807 seconds
-  Import took 0.008782 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000213 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRLoaderOrderUI.cs
-  artifactKey: Guid(e626a1eec7776ce4797c6ef00c47bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRLoaderOrderUI.cs using Guid(e626a1eec7776ce4797c6ef00c47bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b5b0e6c8494191d331d42c801192071') in 0.006963 seconds
-  Import took 0.009151 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000234 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRPackageInitializationSettings.cs
-  artifactKey: Guid(a01285314f691c540930d22a6a820b09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRPackageInitializationSettings.cs using Guid(a01285314f691c540930d22a6a820b09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2b670fc86fbd96822352296446a249a') in 0.006851 seconds
-  Import took 0.009407 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000284 seconds.
-  path: Packages/com.unity.xr.management/Editor/Unity.XR.Management.Editor.asmdef
-  artifactKey: Guid(f9fe0089ec81f4079af78eb2287a6163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/Unity.XR.Management.Editor.asmdef using Guid(f9fe0089ec81f4079af78eb2287a6163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efdc50870648e9d19c74e1105bfe7630') in 0.008916 seconds
-  Import took 0.011069 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000297 seconds.
-  path: Packages/com.unity.xr.management/Editor/EditorUtilities.cs
-  artifactKey: Guid(6895f8ad07949c64f847ed31c87af951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/EditorUtilities.cs using Guid(6895f8ad07949c64f847ed31c87af951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760d853c81a0422bb5d41c37735f5573') in 0.006726 seconds
-  Import took 0.008808 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000194 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRBuildProcessorHelper.cs
-  artifactKey: Guid(83e5e574dc5d9854e9133734661c04de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRBuildProcessorHelper.cs using Guid(83e5e574dc5d9854e9133734661c04de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e307eb1842e5defb769b61dada8a9157') in 0.006375 seconds
-  Import took 0.008296 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000204 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRManagerEditor.cs
-  artifactKey: Guid(0d622ec83e4f54b6596923435a4bba8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRManagerEditor.cs using Guid(0d622ec83e4f54b6596923435a4bba8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25a47056d75d5246fb46352eff8477f1') in 0.006891 seconds
-  Import took 0.008871 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRConfigurationProvider.cs
-  artifactKey: Guid(44ea4f699730f4b1a93b7ea24a2319c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRConfigurationProvider.cs using Guid(44ea4f699730f4b1a93b7ea24a2319c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9c59e37d526cf2673ae41b9d5b25501') in 0.006354 seconds
-  Import took 0.008273 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRSupportedBuildTargetAttribute.cs
-  artifactKey: Guid(573bb802f55a06c4fb7f19db9a003f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRSupportedBuildTargetAttribute.cs using Guid(573bb802f55a06c4fb7f19db9a003f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f1bf3cbf03297d22d9463d9a4fc2f60') in 0.007045 seconds
-  Import took 0.009348 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000235 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRGeneralSettingsPerBuildTarget.cs
-  artifactKey: Guid(d2dc886499c26824283350fa532d087d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRGeneralSettingsPerBuildTarget.cs using Guid(d2dc886499c26824283350fa532d087d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '166c2bc12c2dcc8c6d0a15c4969d336b') in 0.007334 seconds
-  Import took 0.009591 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000266 seconds.
-  path: Packages/com.unity.xr.management/Editor/XREditorWorkQueue.cs
-  artifactKey: Guid(9a8e42857af398b43bb150f17aea738b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XREditorWorkQueue.cs using Guid(9a8e42857af398b43bb150f17aea738b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca9c258a861f5d8ba373dda73b5f8764') in 0.006753 seconds
-  Import took 0.009265 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRPackageInitialization.cs
-  artifactKey: Guid(a1d3d423453f7094a9219647aa8700d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRPackageInitialization.cs using Guid(a1d3d423453f7094a9219647aa8700d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd0cfbc87191e772b5bdc0ad4e669e46') in 0.007640 seconds
-  Import took 0.010101 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000245 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRLoaderInfo.cs
-  artifactKey: Guid(eca7ba6d7e1b88845960a98f39f5d381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRLoaderInfo.cs using Guid(eca7ba6d7e1b88845960a98f39f5d381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69e45829ff80a07b76640671d2b5377f') in 0.006980 seconds
-  Import took 0.009183 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000202 seconds.
-  path: Packages/com.unity.xr.management/Editor/Metadata
-  artifactKey: Guid(e96b3142cde73414a8bb286718cacebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/Metadata using Guid(e96b3142cde73414a8bb286718cacebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c86dd0c1fd03fc7b6c477ed26e9aa3eb') in 0.007630 seconds
-  Import took 0.010082 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Packages/com.unity.xr.management/Editor/BuildHelpers.cs
-  artifactKey: Guid(918a2ed9fc11fbe42982c69db3aa5dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/BuildHelpers.cs using Guid(918a2ed9fc11fbe42982c69db3aa5dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60501527ed00c2a97affb516872368f1') in 0.007059 seconds
-  Import took 0.009476 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRSettingsManager.cs
-  artifactKey: Guid(b7d676d740a0644c0870d6d689136546) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRSettingsManager.cs using Guid(b7d676d740a0644c0870d6d689136546) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f90fed58cfd98d8f437bda30e8a74d0b') in 0.007417 seconds
-  Import took 0.009402 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000213 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRGeneralBuildProcessor.cs
-  artifactKey: Guid(aa29f6b16faf667488069bc2272a9364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRGeneralBuildProcessor.cs using Guid(aa29f6b16faf667488069bc2272a9364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3af562ee56beb0dd221e2a635c77fd87') in 0.006286 seconds
-  Import took 0.008339 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000165 seconds.
-  path: Packages/com.unity.xr.management/Editor/XRGeneralSettingsUpgrade.cs
-  artifactKey: Guid(f2052235d412b9845bcb42de2b6ec306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.xr.management/Editor/XRGeneralSettingsUpgrade.cs using Guid(f2052235d412b9845bcb42de2b6ec306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8edf785f657a81067105028f124f7a7') in 0.007003 seconds
-  Import took 0.009005 seconds .
+  path: Assets/Scripts/TCPTracker.cs
+  artifactKey: Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TCPTracker.cs using Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de360884642d0e8445699d11f314515e') in 0.005878 seconds
+  Import took 0.008443 seconds .
 
 ========================================================================
 Received Prepare
@@ -423,37 +95,83 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001251 seconds.
+Registered in 0.001273 seconds.
 Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 28.11 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 28.31 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.851 seconds
+- Completed reload, in  0.828 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001381 seconds.
+Registered in 0.001948 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.788 seconds
+- Completed reload, in  0.853 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 37.9 MB.
-System memory in use after: 38.0 MB.
+Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 43.2 MB.
+System memory in use after: 43.3 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1627.
-Total: 1.995900 ms (FindLiveObjects: 0.376700 ms CreateObjectMapping: 0.074700 ms MarkObjects: 1.466200 ms  DeleteObjects: 0.076800 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1862.
+Total: 2.034000 ms (FindLiveObjects: 0.394200 ms CreateObjectMapping: 0.097200 ms MarkObjects: 1.495200 ms  DeleteObjects: 0.045600 ms)
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 27.849677 seconds.
+  path: Assets/Scenes/TestSceneEmpty.unity
+  artifactKey: Guid(bc2e7e3e98e1a6147840229ac3eeb061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TestSceneEmpty.unity using Guid(bc2e7e3e98e1a6147840229ac3eeb061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a95b900e71850b41db9711a3f536a1eb') in 0.012699 seconds
+  Import took 0.015672 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001223 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 29.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.797 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001833 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.807 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 43.3 MB.
+System memory in use after: 43.3 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1868.
+Total: 1.665100 ms (FindLiveObjects: 0.279700 ms CreateObjectMapping: 0.055900 ms MarkObjects: 1.285200 ms  DeleteObjects: 0.043200 ms)
+

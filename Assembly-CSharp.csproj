@@ -56,8 +56,9 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\TCPTracker.cs" />
     <Compile Include="Assets\Scripts\RobotConnector.cs" />
+    <Compile Include="Assets\Scripts\TCPTracker.cs" />
+    <Compile Include="Assets\Scripts\UnityServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -680,21 +681,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.XR.OpenVR.csproj">
-      <Project>{47C758C6-9931-8A70-E286-D47398EF3950}</Project>
-      <Name>Unity.XR.OpenVR</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.OpenVR.Editor.csproj">
-      <Project>{42D55C23-FED7-69EC-4E15-ADD780D94C98}</Project>
-      <Name>Unity.XR.OpenVR.Editor</Name>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{6D251E09-AD4B-13C0-F2A8-5982D9B2BB73}</Project>
+      <Name>SteamVR_Actions</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{9CCAABD2-4751-F24A-94AC-E4A4E2D958FB}</Project>
       <Name>SteamVR_Input_Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="SteamVR_Editor.csproj">
-      <Project>{96DE3AB8-D747-60FF-BEE5-EA06F9F3615E}</Project>
-      <Name>SteamVR_Editor</Name>
+    <ProjectReference Include="Unity.XR.OpenVR.csproj">
+      <Project>{47C758C6-9931-8A70-E286-D47398EF3950}</Project>
+      <Name>Unity.XR.OpenVR</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR.csproj">
       <Project>{77F1F2B2-AFE1-5097-F198-A2FC7E749E25}</Project>
@@ -704,9 +701,13 @@
       <Project>{63155C99-9BB9-721C-E117-6C78996ED1C3}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{6D251E09-AD4B-13C0-F2A8-5982D9B2BB73}</Project>
-      <Name>SteamVR_Actions</Name>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{96DE3AB8-D747-60FF-BEE5-EA06F9F3615E}</Project>
+      <Name>SteamVR_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.OpenVR.Editor.csproj">
+      <Project>{42D55C23-FED7-69EC-4E15-ADD780D94C98}</Project>
+      <Name>Unity.XR.OpenVR.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

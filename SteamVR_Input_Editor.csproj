@@ -56,25 +56,25 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector2_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Generator.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Pose_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionSetPropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vibration_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_EditorWindow.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_PostProcessBuild.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_CopyExampleInputFiles.cs" />
     <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Single_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_PropertyEditor.cs" />
     <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Boolean_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_GenericPropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_In_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionManifest_Manager.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Skeleton_PoserEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Skeleton_PropertyEditor.cs" />
-    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector3_PropertyEditor.cs" />
     <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Out_PropertyEditor.cs" />
     <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_LiveWindow.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_GenericPropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Pose_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_EditorWindow.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector2_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionSetPropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vibration_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_In_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_ActionManifest_Manager.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Generator.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_CopyExampleInputFiles.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Vector3_PropertyEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_PostProcessBuild.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Skeleton_PoserEditor.cs" />
+    <Compile Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Action_Skeleton_PropertyEditor.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\SteamVR\Input\Editor\SteamVR_Input_Editor.asmdef" />

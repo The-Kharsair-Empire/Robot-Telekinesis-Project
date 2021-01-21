@@ -56,8 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Editor\OpenVRBuildProcessor.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Editor\OpenVRLoaderMetadata.cs" />
+    <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Editor\OpenVRBuildProcessor.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Editor\OpenVRSettingsEditor.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Editor\OpenVRSettingsCopier.cs" />
   </ItemGroup>

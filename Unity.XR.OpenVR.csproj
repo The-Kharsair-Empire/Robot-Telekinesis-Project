@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\DeviceLayouts.cs" />
+    <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\OpenVRHelpers.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\openvr_api.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\OpenVRLoader.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\OpenVRSettings.cs" />
-    <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\OpenVRHelpers.cs" />
     <Compile Include="C:\Users\ImmersiveAnalytics\Downloads\unity-xr-plugin\com.valve.openvr\Runtime\OpenVREvents.cs" />
   </ItemGroup>
   <ItemGroup>

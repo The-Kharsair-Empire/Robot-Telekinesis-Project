@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TCPTracker : MonoBehaviour
 {
+    public UnityServer unityServer;
+
     public RobotConnector robotConnector;
 
     public float interval = 0.005f;
@@ -43,17 +45,18 @@ public class TCPTracker : MonoBehaviour
 
 
         counter += Time.deltaTime;
-        if (counter > interval)
+        if (counter > interval && unityServer.connected)
         {
-            movel(false);
+
+            unityServer.SendCommand("");
+            //movel(false);
             counter = 0;
         }
+        else if (!unityServer.connected) Debug.Log("No");
 
-        diaplayTrackerPosInfo();
+        //diaplayTrackerPosInfo();
 
         // test();
-
-
     }
 
 
