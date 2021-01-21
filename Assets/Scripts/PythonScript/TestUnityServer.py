@@ -2,7 +2,7 @@ import socket
 import time
 
 def parseSentMsg(pose):
-    return "({}, {}, {}, {}, {}, {})".format(pose[0], pose[1], pose[2], pose[3], pose[4], pose[5])
+    return "({}, {}, {}, {}, {}, {})\n".format(pose[0], pose[1], pose[2], pose[3], pose[4], pose[5])
 
 def main():
     HOST = "192.168.0.192"  # The remote host

@@ -41,12 +41,20 @@ public class UnityServer : MonoBehaviour
     {
         if (robotClient.Client.Connected)
         {
-            Debug.Log("Sending Command");
+            byte[] data = Encoding.ASCII.GetBytes(pose_6_tuple);
+            stream.Write(data, 0, data.Length);
+       
         } else
         {
             connected = false;
             startServer(); // restart Server if connection is broken
         }
+    }
+
+    private void finish()
+    {
+        stream.Close();
+        robotClient.Close();
     }
 
     // Update is called once per frame

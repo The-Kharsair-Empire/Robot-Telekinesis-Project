@@ -48,7 +48,7 @@ public class TCPTracker : MonoBehaviour
         if (counter > interval && unityServer.connected)
         {
 
-            unityServer.SendCommand("");
+            unityServer.SendCommand(packCommand());
             //movel(false);
             counter = 0;
         }
@@ -57,6 +57,15 @@ public class TCPTracker : MonoBehaviour
         //diaplayTrackerPosInfo();
 
         // test();
+    }
+
+    private string packCommand()
+    {
+        double x = transform.position.z;
+        double y = -transform.position.x;
+        double z = transform.position.y;
+        string pose_6_tuple = "(" + x + "," + y + "," + z + "," + transform.rotation.x + "," + transform.rotation.y + "," + transform.rotation.z + ")\n";
+        return pose_6_tuple;
     }
 
 
