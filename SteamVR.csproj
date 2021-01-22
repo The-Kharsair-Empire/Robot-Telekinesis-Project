@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{77F1F2B2-AFE1-5097-F198-A2FC7E749E25}</ProjectGuid>
+    <ProjectGuid>{4BDA3011-3719-6DC2-66B4-5EBDEEFC1173}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>SteamVR</AssemblyName>
@@ -128,7 +128,6 @@
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InputModule.cs" />
     <Compile Include="Assets\SteamVR\Input\SteamVR_ActionDirections.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Unparent.cs" />
-    <Compile Include="Assets\SteamVR\OpenVRUnityXRPackage\Editor\OpenVRSimpleJSON.cs" />
     <Compile Include="Assets\SteamVR\Input\BehaviourUnityEvents\SteamVR_Behaviour_Pose_ConnectedChangedEvent.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Samples\JoeJeff\ProceduralHats.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Menu.cs" />
@@ -147,7 +146,6 @@
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\HandCollider.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_RingBuffer.cs" />
     <Compile Include="Assets\SteamVR\Input\SteamVR_Input.cs" />
-    <Compile Include="Assets\SteamVR\OpenVRUnityXRPackage\Editor\OpenVRPackageInstaller.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Interactable.cs" />
     <Compile Include="Assets\SteamVR\Input\SteamVR_Behaviour_Vector2.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Longbow\Scripts\ExplosionWobble.cs" />
@@ -835,6 +833,9 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.0b9\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.OpenVR">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.OpenVR.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
@@ -847,12 +848,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
-      <Project>{63155C99-9BB9-721C-E117-6C78996ED1C3}</Project>
+      <Project>{7EB5CB30-C492-D232-8610-5B6E1451FFC1}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.OpenVR.csproj">
-      <Project>{47C758C6-9931-8A70-E286-D47398EF3950}</Project>
-      <Name>Unity.XR.OpenVR</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

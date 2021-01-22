@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9CCAABD2-4751-F24A-94AC-E4A4E2D958FB}</ProjectGuid>
+    <ProjectGuid>{B2203643-AC8B-02DE-131B-9AB3AD90AB10}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>SteamVR_Input_Editor</AssemblyName>
@@ -660,6 +660,9 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.0b9\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.OpenVR">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.OpenVR.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -675,12 +678,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR.csproj">
-      <Project>{77F1F2B2-AFE1-5097-F198-A2FC7E749E25}</Project>
+      <Project>{4BDA3011-3719-6DC2-66B4-5EBDEEFC1173}</Project>
       <Name>SteamVR</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.OpenVR.csproj">
-      <Project>{47C758C6-9931-8A70-E286-D47398EF3950}</Project>
-      <Name>Unity.XR.OpenVR</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

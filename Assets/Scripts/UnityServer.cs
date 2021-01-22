@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 public class UnityServer : MonoBehaviour
 {
@@ -24,8 +25,14 @@ public class UnityServer : MonoBehaviour
         startServer();
     }
 
+    private void startServer() {
+        Thread t = new Thread(new ThreadStart(startServerRoutine));
+        t.Start();
 
-    private void startServer()
+    }
+
+
+    private void startServerRoutine()
     {
         
         robotClient = tcpListener.AcceptTcpClient();
@@ -49,6 +56,44 @@ public class UnityServer : MonoBehaviour
             connected = false;
             startServer(); // restart Server if connection is broken
         }
+    }
+
+    public double[] RecvJointPositions()
+    {
+        if (robotClient.Client.Connected)
+        {
+            byte[] res = new byte[1024];
+            int bytes = stream.Read(res, 0, res.Length);
+            string response = Encoding.ASCII.GetString(res, 0, bytes);
+            Debug.Log(response);
+            response = response.Trim(new char[]{'[', ']'});
+            Debug.Log(response);
+            string[] each_joint_pose_string = response.Split(',');
+            double[] joint_pose_result = new double[6];
+            int i = 0;
+            foreach (var each in each_joint_pose_string)
+            {
+                joint_pose_result[i] = double.Parse(each);
+                Debug.Log(joint_pose_result[i]);
+                i++;
+            }
+            return joint_pose_result;
+            
+            
+        } else
+        {
+            connected = false;
+            startServer();
+        }
+        return null;
+       
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Quiting Scene and Closing the Socket");
+        finish();
+
     }
 
     private void finish()

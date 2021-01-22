@@ -50,9 +50,10 @@ public class TCPTracker : MonoBehaviour
 
             unityServer.SendCommand(packCommand());
             //movel(false);
+            double[] robot_joint_state = unityServer.RecvJointPositions();
             counter = 0;
         }
-        else if (!unityServer.connected) Debug.Log("No");
+        else if (!unityServer.connected) Debug.Log("No Robot Connection");
 
         //diaplayTrackerPosInfo();
 

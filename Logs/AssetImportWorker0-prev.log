@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.2.0b9\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/ImmersiveAnalytics/RobotTelekinesis
+C:/Robot-Telekinesis-Unity-Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50840
-Successfully changed project path to: C:/Users/ImmersiveAnalytics/RobotTelekinesis
-C:/Users/ImmersiveAnalytics/RobotTelekinesis
+51247
+Successfully changed project path to: C:/Robot-Telekinesis-Unity-Project
+C:/Robot-Telekinesis-Unity-Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 33.61 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 33.89 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.0b9 (ef2968fa77ae)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/ImmersiveAnalytics/RobotTelekinesis/Assets
+[Subsystems] Discovering subsystems at path C:/Robot-Telekinesis-Unity-Project/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,51 +35,147 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56228
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001361 seconds.
+Registered in 0.001344 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 31.66 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 35.02 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.020 seconds
+- Completed reload, in  0.945 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002580 seconds.
+Registered in 0.001772 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.43 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.35 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.007 seconds
+- Completed reload, in  0.862 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.45 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 71.2 MB.
 System memory in use after: 71.3 MB.
 
 Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1856.
-Total: 3.023200 ms (FindLiveObjects: 0.661100 ms CreateObjectMapping: 0.177400 ms MarkObjects: 2.122900 ms  DeleteObjects: 0.060500 ms)
+Total: 2.434100 ms (FindLiveObjects: 0.369100 ms CreateObjectMapping: 0.085600 ms MarkObjects: 1.902400 ms  DeleteObjects: 0.075500 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/SteamVR_Resources
+  artifactKey: Guid(f95fa5794a962fc469b33e4d561a4682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR_Resources using Guid(f95fa5794a962fc469b33e4d561a4682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b9d0a809a0f8452f7bee2e0f6004a2b') in 0.008376 seconds
+  Import took 0.011047 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/SteamVR_Input
+  artifactKey: Guid(b270953000e1d434582a23d000d1edee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR_Input using Guid(b270953000e1d434582a23d000d1edee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edc8b04748cfa10b6448bdf9e39489bf') in 0.006596 seconds
+  Import took 0.009233 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/SteamVR
+  artifactKey: Guid(e3423b8e365408843aaca57375806d2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SteamVR using Guid(e3423b8e365408843aaca57375806d2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93417a23df0c20c6b9f8d4b773753185') in 0.006054 seconds
+  Import took 0.008714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/StreamingAssets
+  artifactKey: Guid(e2f85725953f2244580dc66710b3c12a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets using Guid(e2f85725953f2244580dc66710b3c12a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff43bf2f2ca30b10d6d034f8d219c5fe') in 0.005211 seconds
+  Import took 0.007926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.580414 seconds.
   path: Assets/Scripts/TCPTracker.cs
   artifactKey: Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TCPTracker.cs using Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f92196f5bedb67435ac26aaca956cc1d') in 0.022953 seconds
-  Import took 0.026891 seconds .
+Start importing Assets/Scripts/TCPTracker.cs using Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eee69a2af1fd23d270062dd85a928b3e') in 0.016317 seconds
+  Import took 0.018912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Scripts/UnityServer.cs
+  artifactKey: Guid(82b98608d0c1e4947a888157fb3036c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UnityServer.cs using Guid(82b98608d0c1e4947a888157fb3036c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f50ca5b1240bffcbfa561a8cb2236ac') in 0.005277 seconds
+  Import took 0.007701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.634115 seconds.
+  path: Packages/com.unity.subsystemregistration/Runtime
+  artifactKey: Guid(8a5069d7dce2647e5bf948b5bcc226a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/Runtime using Guid(8a5069d7dce2647e5bf948b5bcc226a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e30b49a1166edea53e2083d788fd8d0') in 0.005541 seconds
+  Import took 0.008095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Packages/com.unity.subsystemregistration/package.json
+  artifactKey: Guid(39ae12a67d2824dda9cb95e774ab4ab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/package.json using Guid(39ae12a67d2824dda9cb95e774ab4ab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c7d184cc98d56564e7501a6400cf1ec') in 0.014642 seconds
+  Import took 0.017126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Packages/com.unity.subsystemregistration/LICENSE.md
+  artifactKey: Guid(f323730021f394eb2bbc052229add223) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/LICENSE.md using Guid(f323730021f394eb2bbc052229add223) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48f32a6fc129fd40ad52c17aa76ff194') in 0.008318 seconds
+  Import took 0.010828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Packages/com.unity.subsystemregistration/CHANGELOG.md
+  artifactKey: Guid(876e9376b3d9b40d9b1f183d58d03278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/CHANGELOG.md using Guid(876e9376b3d9b40d9b1f183d58d03278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62e4135b1e2aaab263487dac7cb95406') in 0.005756 seconds
+  Import took 0.008059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Packages/com.unity.subsystemregistration/Tests
+  artifactKey: Guid(ca3ddcf8aa28f704fb7d5bfa5a026cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/Tests using Guid(ca3ddcf8aa28f704fb7d5bfa5a026cf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9aa1e2ed1c7b65d310fac32a8ec0c9c5') in 0.005362 seconds
+  Import took 0.007820 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Packages/com.unity.subsystemregistration/README.md
+  artifactKey: Guid(19261c1565f944abbab1eb359f89221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/README.md using Guid(19261c1565f944abbab1eb359f89221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f91d8ebf72d9000ea1c6130a91b5278e') in 0.005522 seconds
+  Import took 0.007984 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Packages/com.unity.subsystemregistration/CONTRIBUTIONS.md
+  artifactKey: Guid(8ec69879deed447ad9aba8e8a78dbc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.subsystemregistration/CONTRIBUTIONS.md using Guid(8ec69879deed447ad9aba8e8a78dbc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d6569bc12aa44915b0fb1fe0e98d63d') in 0.005853 seconds
+  Import took 0.008244 seconds .
 
 ========================================================================
 Received Prepare
@@ -87,36 +183,200 @@ Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001197 seconds.
-Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Registered in 0.001313 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 31.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 32.64 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.765 seconds
+- Completed reload, in  0.784 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001693 seconds.
+Registered in 0.000933 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ImmersiveAnalytics\RobotTelekinesis\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.41 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.776 seconds
+- Completed reload, in  0.804 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.45 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 42.6 MB.
+System memory in use after: 42.7 MB.
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 1825.
+Total: 1.733300 ms (FindLiveObjects: 0.312500 ms CreateObjectMapping: 0.059400 ms MarkObjects: 1.305300 ms  DeleteObjects: 0.055000 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001228 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 36.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.812 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001715 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.763 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 44 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 44.0 MB.
+System memory in use after: 44.0 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1866.
+Total: 1.756900 ms (FindLiveObjects: 0.313500 ms CreateObjectMapping: 0.067400 ms MarkObjects: 1.329200 ms  DeleteObjects: 0.044500 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001253 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 32.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.895 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001732 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.799 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 43.0 MB.
-System memory in use after: 43.1 MB.
+System memory in use before: 43.5 MB.
+System memory in use after: 43.6 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1862.
-Total: 1.815500 ms (FindLiveObjects: 0.355400 ms CreateObjectMapping: 0.075400 ms MarkObjects: 1.339400 ms  DeleteObjects: 0.044000 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1870.
+Total: 1.633400 ms (FindLiveObjects: 0.273900 ms CreateObjectMapping: 0.052000 ms MarkObjects: 1.262600 ms  DeleteObjects: 0.043700 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001328 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 32.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.922 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001700 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.838 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 43.8 MB.
+System memory in use after: 43.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1876.
+Total: 2.019800 ms (FindLiveObjects: 0.386400 ms CreateObjectMapping: 0.073700 ms MarkObjects: 1.493100 ms  DeleteObjects: 0.065200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 276.903580 seconds.
+  path: Assets/Scripts/TCPTracker.cs
+  artifactKey: Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TCPTracker.cs using Guid(b846bacb61bd2b64b90bad561ec577a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b13acc151a50549293038d65944ff03f') in 0.003253 seconds
+  Import took 0.005938 seconds .
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b9/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001173 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 29.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.884 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001921 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Robot-Telekinesis-Unity-Project\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.911 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 44.0 MB.
+System memory in use after: 44.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1882.
+Total: 1.964500 ms (FindLiveObjects: 0.333400 ms CreateObjectMapping: 0.068500 ms MarkObjects: 1.510500 ms  DeleteObjects: 0.051000 ms)
 
