@@ -25,7 +25,6 @@
 -----
 
 ###TODO:
-- Work out the way for URscript to send back joint 6-tuple to the unity server
 - Implement a Loop structure in URscript to allow re-connection to the Unity Host if the Host restart
 - Integrate a UR3 model in the unity and work out the position offset
 - Work out the Rotation Conversion from Unity to URrobot.
