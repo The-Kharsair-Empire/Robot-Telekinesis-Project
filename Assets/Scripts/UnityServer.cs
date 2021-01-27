@@ -58,7 +58,7 @@ public class UnityServer : MonoBehaviour
         }
     }
 
-    public double[] RecvJointPositions()
+    public double[] Recv6Tuple()
     {
         if (robotClient.Client.Connected)
         {
@@ -68,16 +68,16 @@ public class UnityServer : MonoBehaviour
             Debug.Log(response);
             response = response.Trim(new char[]{'[', ']'});
             Debug.Log(response);
-            string[] each_joint_pose_string = response.Split(',');
-            double[] joint_pose_result = new double[6];
+            string[] each_double = response.Split(',');
+            double[] pose_result = new double[6];
             int i = 0;
-            foreach (var each in each_joint_pose_string)
+            foreach (var each in each_double)
             {
-                joint_pose_result[i] = double.Parse(each);
-                Debug.Log(joint_pose_result[i]);
+                pose_result[i] = double.Parse(each);
+                Debug.Log(pose_result[i]);
                 i++;
             }
-            return joint_pose_result;
+            return pose_result;
             
             
         } else
@@ -87,6 +87,26 @@ public class UnityServer : MonoBehaviour
         }
         return null;
        
+    }
+
+    public Vector3 quaternion_2_axis_angle(Quarternion object_transform)
+    {
+
+    }
+
+    public axis_angle_2_quaternion(double[] rx_ry_rz)
+    {
+
+    }
+
+    public Vector3 RUF2FLU(Vector3 unity_RUF)
+    {
+        return new Vector3(unity_RUF.z, -unity_RUF.x, unity_RUF.y);
+    }
+
+    public Vector3 FLU2RUF(Vector3 ur_FLU)
+    {
+        return new Vector3(-ur_FLU.y, ur_FLU.z, ur_FLU.x)
     }
 
     private void OnDestroy()

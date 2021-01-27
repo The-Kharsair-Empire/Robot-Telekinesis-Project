@@ -50,14 +50,23 @@ public class TCPTracker : MonoBehaviour
 
             unityServer.SendCommand(packCommand());
             //movel(false);
-            double[] robot_joint_state = unityServer.RecvJointPositions();
+            double[] robot_joint_state = unityServer.Recv6Tuple();
             if (robot_joint_state != null)
             {
                 //handle received joint state (double[6]) data
             }
+
+            double [] robot_tcp_pose = unityServer.Recv6Tuple();
+            if (robot_tcp_pose != null)
+            {
+                // handle recived tcp data
+            }
             counter = 0;
         }
-        else if (!unityServer.connected) Debug.Log("No Robot Connection");
+        else if (!unityServer.connected) {
+            Debug.Log("No Robot Connection");
+            sleep(0.5);
+        }
 
         //diaplayTrackerPosInfo();
 
@@ -72,6 +81,8 @@ public class TCPTracker : MonoBehaviour
         string pose_6_tuple = "(" + x + "," + y + "," + z + "," + transform.rotation.x + "," + transform.rotation.y + "," + transform.rotation.z + ")\n";
         return pose_6_tuple;
     }
+
+
 
 
     private void movel(bool useTracker)
