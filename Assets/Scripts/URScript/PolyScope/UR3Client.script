@@ -45,7 +45,7 @@ def UR3Client():
         global current_joint_positions = get_actual_joint_positions()
     
         global target_joint_pose = get_inverse_kin(targetPos, current_joint_positions) #  pass in a qnear opitonal parameter (second param) which specify the solution should be near which joint position
-        movej(target_joint_pose, 0.5, 0.1, 0, 0)
+        movej(target_joint_pose, 1.5, 0.5, 0, 0)
 
         # servoj(target_joint_pose, 0, 0, 0.1, 0.1, 300)
 

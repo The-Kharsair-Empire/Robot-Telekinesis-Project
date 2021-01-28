@@ -34,7 +34,7 @@ public class UnityServer : MonoBehaviour
 
     private void startServerRoutine()
     {
-        
+        Thread.Sleep(2000);
         robotClient = tcpListener.AcceptTcpClient();
         connected = robotClient.Client.Connected;
         stream = robotClient.GetStream();
@@ -54,7 +54,7 @@ public class UnityServer : MonoBehaviour
         } else
         {
             connected = false;
-            startServer(); // restart Server if connection is broken
+           // startServer(); // restart Server if connection is broken
         }
     }
 
@@ -66,7 +66,7 @@ public class UnityServer : MonoBehaviour
             int bytes = stream.Read(res, 0, res.Length);
             string response = Encoding.ASCII.GetString(res, 0, bytes);
             Debug.Log(response);
-            response = response.Trim(new char[]{'[', ']'});
+            response = response.Trim(new char[]{'[', ']' ,'p'});
             Debug.Log(response);
             string[] each_double = response.Split(',');
             double[] pose_result = new double[6];
@@ -83,13 +83,13 @@ public class UnityServer : MonoBehaviour
         } else
         {
             connected = false;
-            startServer();
+            //startServer();
         }
         return null;
        
     }
 
-    public Vector3 quaternion_2_axis_angle(Quarternion object_transform)
+  /*  public Vector3 quaternion_2_axis_angle(Quarternion object_transform)
     {
 
     }
@@ -97,7 +97,7 @@ public class UnityServer : MonoBehaviour
     public axis_angle_2_quaternion(double[] rx_ry_rz)
     {
 
-    }
+    }*/
 
     public Vector3 RUF2FLU(Vector3 unity_RUF)
     {
@@ -106,7 +106,7 @@ public class UnityServer : MonoBehaviour
 
     public Vector3 FLU2RUF(Vector3 ur_FLU)
     {
-        return new Vector3(-ur_FLU.y, ur_FLU.z, ur_FLU.x)
+        return new Vector3(-ur_FLU.y, ur_FLU.z, ur_FLU.x);
     }
 
     private void OnDestroy()

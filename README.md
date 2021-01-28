@@ -25,10 +25,11 @@
 -----
 
 ###TODO:
+
+- Finish Implementing the Sphere Collider used to confine the VR tracker movement in order to prevent robot from moving to its pose limits and enter protective stop.
+- Implement multithreading in URscript to reduce delay
 - Implement a Loop structure in URscript to allow re-connection to the Unity Host if the Host restart
 - Integrate a UR3 model in the unity and work out the position offset
 - Work out the Rotation Conversion from Unity to URrobot.
-- Integrate Big-Endian bytes decoder (.py script) into Unity C# to decode robot reading sent on TCP/IP socket
 - Work out the correct values for VR Tracker Offset from the Tool Tip Tracker
 - Smooth out the robot movement by removing the noise from the VR tracker readings
-- Finish Implementing the Sphere Collider used to confine the VR tracker movement in order to prevent robot from moving to its pose limits and enter protective stop.

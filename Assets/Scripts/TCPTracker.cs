@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading;
 public class TCPTracker : MonoBehaviour
 {
     public UnityServer unityServer;
 
     public RobotConnector robotConnector;
 
-    public float interval = 0.005f;
+    public float interval = 0.05f;
 
     public GameObject boundryCollider;
 
@@ -20,18 +20,31 @@ public class TCPTracker : MonoBehaviour
 
     public float trackerPos_z = 0f;
 
-    public GameObject testObject;
 
     private float counter = 0;
 
-    private void Start()
-    {
-        
-    }
+    public Vector3 VRtracker_TCP_offset;
+    public Vector3 desired_pos;
+    public Vector3 tracker_pos;
+
+    public Vector3 previous_tracker_pos;
+    public Vector3 previous_tcp_pos;
+
+    private bool get_offset_flag = true;
+
+    
 
 
     void Update()
     {
+
+        if (get_offset_flag)
+        {
+            VRtracker_TCP_offset = transform.position - VRtracker.transform.position;
+            previous_tracker_pos = VRtracker.transform.position;
+            previous_tcp_pos = transform.position;
+            get_offset_flag = false;
+        }
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.position = new Vector3(transform.position.x +0.01f, transform.position.y, transform.position.z);
@@ -43,12 +56,34 @@ public class TCPTracker : MonoBehaviour
             move();
         }*/
 
+        tracker_pos = VRtracker.transform.position;
+        
+        Vector3 actual_movement = tracker_pos - previous_tracker_pos;
+        if (actual_movement.magnitude > 0.1)
+        {
+            Vector3 actual_tcp_movement =  (VRtracker_TCP_offset + tracker_pos) - previous_tcp_pos;
+            Vector3 wanted_tcp_movement = actual_tcp_movement / 10;
+            desired_pos = previous_tcp_pos + wanted_tcp_movement;
+            transform.position = desired_pos;
+            new Thread(new ParameterizedThreadStart(CommRoutine)).Start(desired_pos);
 
-        counter += Time.deltaTime;
-        if (counter > interval && unityServer.connected)
+            previous_tracker_pos = tracker_pos;
+            previous_tcp_pos = desired_pos;
+        }
+
+
+        //transform.position = desired_pos;
+
+        diaplayTrackerPosInfo();
+
+    }
+
+    private void CommRoutine(object desired_goal)
+    {
+        if (unityServer.connected)
         {
 
-            unityServer.SendCommand(packCommand());
+            unityServer.SendCommand(packCommand(((Vector3) desired_goal)));
             //movel(false);
             double[] robot_joint_state = unityServer.Recv6Tuple();
             if (robot_joint_state != null)
@@ -56,48 +91,33 @@ public class TCPTracker : MonoBehaviour
                 //handle received joint state (double[6]) data
             }
 
-            double [] robot_tcp_pose = unityServer.Recv6Tuple();
+            double[] robot_tcp_pose = unityServer.Recv6Tuple();
             if (robot_tcp_pose != null)
             {
                 // handle recived tcp data
             }
             counter = 0;
         }
-        else if (!unityServer.connected) {
+        else if (!unityServer.connected)
+        {
             Debug.Log("No Robot Connection");
-            sleep(0.5);
+
         }
-
-        //diaplayTrackerPosInfo();
-
-        // test();
     }
 
-    private string packCommand()
+    private string packCommand(Vector3 desired_pos)
     {
-        double x = transform.position.z;
-        double y = -transform.position.x;
-        double z = transform.position.y;
-        string pose_6_tuple = "(" + x + "," + y + "," + z + "," + transform.rotation.x + "," + transform.rotation.y + "," + transform.rotation.z + ")\n";
+        
+        double x = desired_pos.z;
+        double y = -desired_pos.x;
+        double z = desired_pos.y;
+ 
+        string pose_6_tuple = "(" + x + "," + y + "," + z + "," + 0 + "," + 0 + "," + 0 + ")\n";
         return pose_6_tuple;
     }
 
 
 
-
-    private void movel(bool useTracker)
-    {
-      
-        double x = transform.position.z;
-        double y = -transform.position.x;
-        double z = transform.position.y;
-
-        robotConnector.movel(x, y, z, transform.rotation.x, transform.rotation.y, transform.rotation.z, 0.5, 0.1, 0, 0);
-        //TODO: this rotation is 4-tuple quanterion (x, y, z, w), it is incorrect, use Euler angle and convert it to right-hand rotation coordinate used in UR robot
-
-        //counter = 0;
-        
-    }
 
     private void resetTrackerOffset()
     {
@@ -106,20 +126,11 @@ public class TCPTracker : MonoBehaviour
 
     private void diaplayTrackerPosInfo()
     {
-        trackerPos_x = VRtracker.transform.position.x;
-        trackerPos_y = VRtracker.transform.position.y;
-        trackerPos_z = VRtracker.transform.position.z;
-    }
-    private void test()
-    {
-        double[] tcp_pose = robotConnector.get_current_tcp();
-        setTestObjectPose(tcp_pose);
+        trackerPos_x = tracker_pos.x;
+        trackerPos_y = tracker_pos.y;
+        trackerPos_z = tracker_pos.z;
     }
 
-    private void setTestObjectPose(double[] tcp_pose)
-    {
 
-       testObject.transform.position = new Vector3((float)tcp_pose[0], (float)tcp_pose[1], (float)tcp_pose[2]);
 
-    }
 }
