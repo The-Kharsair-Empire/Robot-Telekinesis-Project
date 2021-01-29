@@ -34,7 +34,8 @@ public class UnityServer : MonoBehaviour
 
     private void startServerRoutine()
     {
-        Thread.Sleep(2000);
+       // Thread.Sleep(2000);
+        Debug.Log("Host start listening for incoming robot connection");
         robotClient = tcpListener.AcceptTcpClient();
         connected = robotClient.Client.Connected;
         stream = robotClient.GetStream();
@@ -99,22 +100,6 @@ public class UnityServer : MonoBehaviour
 
     }*/
 
-    public Vector3 RUF2FLU(Vector3 unity_RUF)
-    {
-        return new Vector3(unity_RUF.z, -unity_RUF.x, unity_RUF.y);
-    }
-
-    public Vector3 FLU2RUF(Vector3 ur_FLU)
-    {
-        return new Vector3(-ur_FLU.y, ur_FLU.z, ur_FLU.x);
-    }
-
-    private void OnDestroy()
-    {
-        Debug.Log("Quiting Scene and Closing the Socket");
-        finish();
-
-    }
 
     private void finish()
     {
