@@ -90,21 +90,29 @@ public class UnityServer : MonoBehaviour
        
     }
 
-  /*  public Vector3 quaternion_2_axis_angle(Quarternion object_transform)
-    {
+    /*  public Vector3 quaternion_2_axis_angle(Quarternion object_transform)
+      {
 
+      }
+
+      public axis_angle_2_quaternion(double[] rx_ry_rz)
+      {
+
+      }*/
+
+    private void OnDestroy()
+    {
+        finish();
     }
 
-    public axis_angle_2_quaternion(double[] rx_ry_rz)
-    {
 
-    }*/
 
 
     private void finish()
     {
         stream.Close();
         robotClient.Close();
+        tcpListener.Stop();
     }
 
     // Update is called once per frame
