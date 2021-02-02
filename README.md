@@ -24,12 +24,16 @@
 
 -----
 
-###TODO:
+### TODO:
 
+- Re-architecture the project and introduce an relay server (unityClient.cs that connects to relay server plus VirtualEndEffectorTrackeer.cs)
+- Implement multithreading to allow interrupt current move execution and override the goal
+- Integrate a UR3 model from UR developer forum
+- Finish Implementing the Controller and Virtual Plane technique for manipulating the robot goal pose.
+
+### Pending:
 - Finish Implementing the Sphere Collider used to confine the VR tracker movement in order to prevent robot from moving to its pose limits and enter protective stop.
-- Implement multithreading in URscript to reduce delay
 - Implement a Loop structure in URscript to allow re-connection to the Unity Host if the Host restart
-- Integrate a UR3 model in the unity and work out the position offset
-- Work out the Rotation Conversion from Unity to URrobot.
-- Work out the correct values for VR Tracker Offset from the Tool Tip Tracker
-- Smooth out the robot movement by removing the noise from the VR tracker readings
+- Verify whether the Rotation Conversion from Unity to URrobot is correct.
+- Verify whether the value for VR Tracker Offset from the Tool Tip Tracker is correct.
+- Adjust the distance param to trigger command that smooth out the robot movement.
