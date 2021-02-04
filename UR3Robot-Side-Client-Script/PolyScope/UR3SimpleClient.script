@@ -1,0 +1,69 @@
+def UR3Client():
+    set_standard_analog_input_domain(0, 1)
+    set_standard_analog_input_domain(1, 1)
+    set_tool_analog_input_domain(0, 1)
+    set_tool_analog_input_domain(1, 1)
+    set_analog_outputdomain(0, 0)
+    set_analog_outputdomain(1, 0)
+    set_tool_voltage(0)
+    set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+    set_payload(0.0)
+    set_gravity([0.0, 0.0, 9.82])
+
+    global open=socket_open("192.168.0.192",21)
+
+    while (open ==  False  ):
+        global open=socket_open("192.168.0.192",21)
+    end
+
+    global targetPos=p[0,0,0,0,0,0]
+
+    global counter=0
+
+    global hello="hello from UR3 robot to The Server"
+      
+    socket_send_string(hello)
+
+    while (True):
+
+        global receiveFromServ=socket_read_ascii_float(6)
+
+        while (receiveFromServ[0] !=6):
+
+            sleep(0.3)
+        
+            global receiveFromServ=socket_read_ascii_float(6)
+        end
+
+        while (counter <6):
+
+            targetPos[counter]=receiveFromServ[counter+1]
+
+            global counter=counter+1
+        end
+
+        global current_joint_positions = get_actual_joint_positions()
+    
+        global target_joint_pose = get_inverse_kin(targetPos, current_joint_positions) #  pass in a qnear opitonal parameter (second param) which specify the solution should be near which joint position
+        movej(target_joint_pose, 1.5, 0.5, 0, 0)
+
+        # servoj(target_joint_pose, 0, 0, 0.1, 0.1, 300)
+
+        #movej(targetPos, a=1.3962634015954636, v=1.0471975511965976)
+        #sleep(0.2)
+
+        global counter=0
+
+        socket_send_string(get_actual_joint_positions())
+
+        #socket_send_string(get_actual_tcp_pose())
+        
+    end
+end
+  
+# def send_6_tuple(6_tuple):
+
+# end
+
+UR3Client()
+
