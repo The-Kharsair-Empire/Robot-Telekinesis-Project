@@ -1,0 +1,2 @@
+### Scripts under this folder are simple python script to test and prototype for things that might or might not be implemented in the actual project.
+### You don't need stuffs here to run the robot telekinesis project.
