@@ -56,7 +56,7 @@ def UR3Client():
 
         socket_send_string(get_actual_joint_positions())
 
-        socket_send_string(get_actual_tcp_pose())
+        #socket_send_string(get_actual_tcp_pose())
         
     end
 end

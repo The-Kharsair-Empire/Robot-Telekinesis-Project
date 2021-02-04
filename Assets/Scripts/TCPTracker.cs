@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using System;
+using System.Threading.Tasks;
+
 public class TCPTracker : MonoBehaviour
 {
     public UnityServer unityServer;
@@ -14,6 +16,9 @@ public class TCPTracker : MonoBehaviour
     public GameObject boundryCollider;
 
     public GameObject VRtracker;
+
+    public GameObject UR3;
+    public GameObject[] joint_links;
 
     public float trackerPos_x = 0f;
 
@@ -35,8 +40,20 @@ public class TCPTracker : MonoBehaviour
 
     private bool get_offset_flag = true;
 
-    
-
+    private Dictionary<int, char> link_index_to_axis_mapper;
+  
+    void Start()
+    {
+        link_index_to_axis_mapper = new Dictionary<int, char>() {
+            {0, 'y' },
+            {1, 'x' },
+            {2, 'y' },
+            {3, 'x' },
+            {4, 'y' },
+            {5, 'z' }
+        };
+        //y, x, y, x, y, z
+    }
 
     void Update()
     {
@@ -71,7 +88,8 @@ public class TCPTracker : MonoBehaviour
             desired_pos = previous_tcp_pos + wanted_tcp_movement;*/
             desired_pos = tracker_pos + VRtracker_TCP_offset;
             transform.position = desired_pos;
-            new Thread(new ThreadStart(CommRoutine)).Start();
+            StartCoroutine(CommRoutine());
+            //new Thread(new ThreadStart(CommRoutine)).Start();
 
             previous_tracker_pos = tracker_pos;
            // previous_tcp_pos = desired_pos;
@@ -84,7 +102,7 @@ public class TCPTracker : MonoBehaviour
 
     }
 
-    private void CommRoutine()
+    private IEnumerator CommRoutine()
     {
         if (unityServer.connected)
         {
@@ -95,20 +113,71 @@ public class TCPTracker : MonoBehaviour
             if (robot_joint_state != null)
             {
                 //handle received joint state (double[6]) data
+
+                var joint_state_in_deg = new float[robot_joint_state.Length];
+
+                Parallel.For(0, robot_joint_state.Length, i => joint_state_in_deg[i] = rad2deg(robot_joint_state[i]));
+
+                for (int i = 0; i < joint_state_in_deg.Length; i++)
+                {
+                    move(joint_links[i], i, joint_state_in_deg[i]);
+                }
+                //StartCoroutine(MoveRobotJointTo(joint_state_in_deg));
             }
 
-            double[] robot_tcp_pose = unityServer.Recv6Tuple();
+           /* double[] robot_tcp_pose = unityServer.Recv6Tuple();
             if (robot_tcp_pose != null)
             {
                 // handle recived tcp data
-            }
-            counter = 0;
+            }*/
+ 
         }
         else if (!unityServer.connected)
         {
             Debug.Log("No Robot Connection");
 
         }
+        yield return new WaitForSeconds(1);
+    }
+
+    private IEnumerator MoveRobotJointTo(float[] joint_state)
+    {
+        
+        yield return new WaitForSeconds(1);
+    }
+
+    private void move(GameObject joint_link, int of_index, float to)
+    {
+        char move_which_axis;
+        if (link_index_to_axis_mapper.TryGetValue(of_index, out move_which_axis))
+        {
+            Debug.Log("rotating joint of index: " + of_index + " along: " + move_which_axis + " axis, to degree: " + to);
+            if (move_which_axis == 'x')
+            {
+                Debug.Log(move_which_axis);
+                joint_link.transform.rotation = Quaternion.Euler(to, joint_link.transform.rotation.eulerAngles.y, joint_link.transform.rotation.eulerAngles.z);
+            } else if (move_which_axis == 'y')
+            {
+                Debug.Log(move_which_axis);
+                joint_link.transform.rotation = Quaternion.Euler(joint_link.transform.rotation.eulerAngles.x, to, joint_link.transform.rotation.eulerAngles.z);
+            } else if (move_which_axis == 'z')
+            {
+                Debug.Log(move_which_axis);
+                joint_link.transform.rotation = Quaternion.Euler(joint_link.transform.rotation.eulerAngles.x, joint_link.transform.rotation.eulerAngles.y, to);
+            }
+        }
+        else
+        {
+            Debug.LogError("cannot find the joint to move !!!");
+        }
+    } 
+
+    private float rad2deg(double rad)
+    {
+        Debug.Log("was: " + rad);
+        Debug.Log("is " + (float)(180 * rad / Math.PI));
+        return (float) ( 180 * rad / Math.PI);
+        
     }
 
     private string packCommand(Vector3 desired_pos, Quaternion desired_orientation)
@@ -194,13 +263,6 @@ public class TCPTracker : MonoBehaviour
         return new Vector3((float)z, (float)-x, (float)y) * (float)angle;
     }
 
-
-
-
-    private void resetTrackerOffset()
-    {
-
-    }
 
     private void diaplayTrackerPosInfo()
     {

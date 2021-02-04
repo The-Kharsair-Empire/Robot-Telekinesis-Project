@@ -9,11 +9,10 @@ public class VirtualEndEffectorTracker : MonoBehaviour
 
     public RobotConnector robotConnector;
 
-    public float interval = 0.05f;
 
     public GameObject boundryCollider;
 
-    public GameObject VRtracker;
+    public GameObject VRController; //controller
 
     public float trackerPos_x = 0f;
 
@@ -22,62 +21,46 @@ public class VirtualEndEffectorTracker : MonoBehaviour
     public float trackerPos_z = 0f;
 
 
-    private float counter = 0;
-
-    public Vector3 VRtracker_TCP_offset;
+    public Vector3 controller_endEffector_offset;
     public Vector3 desired_pos;
     public Quaternion desired_orientation_q;
     public Vector3 desired_orientation_e;
-    public Vector3 tracker_pos;
+    public Vector3 controller_pos;
 
-    public Vector3 previous_tracker_pos;
+    public Vector3 previous_controller_pos;
     public Vector3 previous_tcp_pos;
 
+    private GameObject end_effector_virtual_plane;
 
-    public void actiavte()
+
+    public void actiavte(GameObject virtual_plane_on_tcp)
     {
-        VRtracker_TCP_offset = transform.position - VRtracker.transform.position;
-        previous_tracker_pos = VRtracker.transform.position;
+        controller_endEffector_offset = transform.position - VRController.transform.position;
+        previous_controller_pos = VRController.transform.position;
+        end_effector_virtual_plane = virtual_plane_on_tcp;
+        // virtual_plane_on_tcp;
     }
 
-    public void interact()
+    public void interact(GameObject virtual_plane_on_controller)
     {
 
-    }
-
-
-
-
-    void Update()
-    {
-
-        
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            transform.position = new Vector3(transform.position.x +0.01f, transform.position.y, transform.position.z);
-            move();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.position = new Vector3(transform.position.x -0.01f, transform.position.y, transform.position.z);
-            move();
-        }*/
-
-        tracker_pos = VRtracker.transform.position;
-
-        Vector3 actual_movement = tracker_pos - previous_tracker_pos;
-        desired_orientation_q = VRtracker.transform.rotation;
-        desired_orientation_e = VRtracker.transform.rotation.eulerAngles;
-        if (actual_movement.magnitude > 0.05)
+        end_effector_virtual_plane.transform.position = virtual_plane_on_controller.transform.position + controller_endEffector_offset;
+        end_effector_virtual_plane.transform.rotation = virtual_plane_on_controller.transform.rotation;
+        controller_pos = VRController.transform.position;
+        Vector3 actual_movement = controller_pos - previous_controller_pos;
+        desired_orientation_q = end_effector_virtual_plane.transform.rotation;
+        desired_orientation_e = end_effector_virtual_plane.transform.rotation.eulerAngles;
+        if (actual_movement.magnitude > 0.015)
         {
             /*Vector3 actual_tcp_movement =  (VRtracker_TCP_offset + tracker_pos) - previous_tcp_pos;
             Vector3 wanted_tcp_movement = actual_tcp_movement / 10;
             desired_pos = previous_tcp_pos + wanted_tcp_movement;*/
-            desired_pos = tracker_pos + VRtracker_TCP_offset;
+            desired_pos = end_effector_virtual_plane.transform.position;
             transform.position = desired_pos;
+            transform.rotation = desired_orientation_q;
             new Thread(new ThreadStart(CommRoutine)).Start();
 
-            previous_tracker_pos = tracker_pos;
+            previous_controller_pos = controller_pos;
             // previous_tcp_pos = desired_pos;
         }
 
@@ -85,8 +68,7 @@ public class VirtualEndEffectorTracker : MonoBehaviour
         //transform.position = desired_pos;
 
         diaplayTrackerPosInfo();
-
-    }
+    } 
 
     private void CommRoutine()
     {
@@ -106,7 +88,7 @@ public class VirtualEndEffectorTracker : MonoBehaviour
             {
                 // handle recived tcp data
             }
-            counter = 0;
+
         }
         else if (!unityServer.connected)
         {
@@ -209,9 +191,9 @@ public class VirtualEndEffectorTracker : MonoBehaviour
 
     private void diaplayTrackerPosInfo()
     {
-        trackerPos_x = tracker_pos.x;
-        trackerPos_y = tracker_pos.y;
-        trackerPos_z = tracker_pos.z;
+        trackerPos_x = controller_pos.x;
+        trackerPos_y = controller_pos.y;
+        trackerPos_z = controller_pos.z;
     }
 
 
