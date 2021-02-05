@@ -1,0 +1,13 @@
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.exe
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.deps.json
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.runtimeconfig.json
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.runtimeconfig.dev.json
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.dll
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\bin\Debug\netcoreapp3.1\CsTestScripts.pdb
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.csprojAssemblyReference.cache
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.AssemblyInfoInputs.cache
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.AssemblyInfo.cs
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.csproj.CoreCompileInputs.cache
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.dll
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.pdb
+C:\Users\IS350F-Sport\Documents\Robot-Telekinesis-Project\TestScripts\CsTestScripts\obj\Debug\netcoreapp3.1\CsTestScripts.genruntimeconfig.cache
