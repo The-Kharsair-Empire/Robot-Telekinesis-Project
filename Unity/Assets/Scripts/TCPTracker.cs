@@ -88,7 +88,7 @@ public class TCPTracker : MonoBehaviour
             desired_pos = previous_tcp_pos + wanted_tcp_movement;*/
             desired_pos = tracker_pos + VRtracker_TCP_offset;
             transform.position = desired_pos;
-            StartCoroutine(CommRoutine());
+            StartCoroutine(CommRoutine()); // it is not how you use it, it really mess up!
             //new Thread(new ThreadStart(CommRoutine)).Start();
 
             previous_tracker_pos = tracker_pos;
