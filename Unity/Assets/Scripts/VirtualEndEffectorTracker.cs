@@ -83,11 +83,11 @@ public class VirtualEndEffectorTracker : MonoBehaviour
                 //handle received joint state (double[6]) data
             }
 
-            double[] robot_tcp_pose = unityServer.Recv6Tuple();
+            /*double[] robot_tcp_pose = unityServer.Recv6Tuple();
             if (robot_tcp_pose != null)
             {
                 // handle recived tcp data
-            }
+            }*/
 
         }
         else if (!unityServer.connected)

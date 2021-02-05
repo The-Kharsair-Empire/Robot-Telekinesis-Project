@@ -109,6 +109,7 @@ public class TCPTracker : MonoBehaviour
 
             unityServer.SendCommand(packCommand(desired_pos, desired_orientation_q));
             //movel(false);
+            yield return null;
             double[] robot_joint_state = unityServer.Recv6Tuple();
             if (robot_joint_state != null)
             {
@@ -121,6 +122,7 @@ public class TCPTracker : MonoBehaviour
                 for (int i = 0; i < joint_state_in_deg.Length; i++)
                 {
                     move(joint_links[i], i, joint_state_in_deg[i]);
+                    yield return null;
                 }
                 //StartCoroutine(MoveRobotJointTo(joint_state_in_deg));
             }
@@ -137,7 +139,7 @@ public class TCPTracker : MonoBehaviour
             Debug.Log("No Robot Connection");
 
         }
-        yield return new WaitForSeconds(1);
+        
     }
 
     private IEnumerator MoveRobotJointTo(float[] joint_state)

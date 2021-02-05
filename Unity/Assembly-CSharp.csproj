@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ABAF6623-566B-1712-5C77-1E30F9A20015}</ProjectGuid>
+    <ProjectGuid>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,11 +56,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\VirtualEndEffectorTracker.cs" />
     <Compile Include="Assets\Scripts\ControllerInput.cs" />
     <Compile Include="Assets\Scripts\UnityServer.cs" />
     <Compile Include="Assets\Scripts\RobotConnector.cs" />
     <Compile Include="Assets\Scripts\TCPTracker.cs" />
-    <Compile Include="Assets\Scripts\VirtualEndEffectorTracker.cs" />
+    <Compile Include="Assets\Scripts\UnityClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -690,23 +691,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{566BB67A-1E23-EDBC-6454-BE1041591776}</Project>
+      <Project>{9AF5EB69-4778-09D8-3DDE-C987CFF60CC2}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
-      <Project>{B2203643-AC8B-02DE-131B-9AB3AD90AB10}</Project>
+      <Project>{3A4C5F38-7847-39DD-678B-8D0F6312DF9A}</Project>
       <Name>SteamVR_Input_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR.csproj">
-      <Project>{4BDA3011-3719-6DC2-66B4-5EBDEEFC1173}</Project>
+      <Project>{28F78861-8D77-0F0A-A65E-CB6CA9C004CA}</Project>
       <Name>SteamVR</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
-      <Project>{7EB5CB30-C492-D232-8610-5B6E1451FFC1}</Project>
+      <Project>{4544E7A1-0853-B441-40E6-08E684CA4378}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Editor.csproj">
-      <Project>{469352A2-94EE-766E-BD53-9DA1F62646F9}</Project>
+      <Project>{5266584C-1080-63B6-DDEA-48B6EA5F0DB9}</Project>
       <Name>SteamVR_Editor</Name>
     </ProjectReference>
   </ItemGroup>
