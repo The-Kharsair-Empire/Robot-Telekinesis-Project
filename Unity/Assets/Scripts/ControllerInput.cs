@@ -9,9 +9,13 @@ public class ControllerInput : MonoBehaviour
     public SteamVR_Action_Boolean touched; 
 
     public GameObject controller;
+
     private GameObject virtual_plane_on_controller;
     private GameObject virtual_plane_on_tcp;
+
     public GameObject virtualPlanePrefab;
+
+
     public GameObject virtual_end_effector;
 
  

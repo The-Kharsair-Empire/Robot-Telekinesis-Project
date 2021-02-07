@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Web;
+using System.Threading;
 
 namespace CsTestScripts
 {
@@ -22,8 +23,14 @@ namespace CsTestScripts
             connect(server, port);
 
             Console.WriteLine("connected");
-            string res = sendAndRecv("fuck you server");
-            Console.WriteLine(res);
+            while(true) {
+                string res = sendAndRecv("fuck you server");
+                Console.WriteLine(res);
+                Thread.Sleep(1000);
+            }
+            
+
+            
             client.Close();
         }
 
@@ -39,7 +46,8 @@ namespace CsTestScripts
 
             // Byte[] data = Encoding.ASCII.GetBytes(msg);
             // stream.Write(data);
-            string codeword = HttpUtility.UrlEncode(msg, Encoding.UTF8);
+            string codeword = msg;//HttpUtility.UrlEncode(msg, Encoding.UTF8);
+            Console.WriteLine(codeword);
             outChannel.WriteLine(codeword);
             outChannel.Flush();
 
@@ -47,7 +55,7 @@ namespace CsTestScripts
             // int bytes = stream.Read(data, 0, data.Length);
             // string res = Encoding.ASCII.GetString(data, 0, bytes);
             string res = inChannel.ReadLine();
-            res = HttpUtility.UrlDecode(res, Encoding.UTF8);
+           // res = HttpUtility.UrlDecode(res, Encoding.UTF8);
             return res;
 
         }

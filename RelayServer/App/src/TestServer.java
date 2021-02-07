@@ -23,21 +23,36 @@ public class TestServer {
     private static void startServer(int server_port) throws IOException {
         server = new ServerSocket(server_port);
 
-        client = server.accept();
-        System.out.println("accepted");
+        while(true){
+            client = server.accept();
+            System.out.println("accepted");
+            System.out.println(client);
+            System.out.println(client.getRemoteSocketAddress());
+            System.out.println(client.getLocalAddress());
+            System.out.println(client.getRemoteSocketAddress());
+            System.out.println(client.getRemoteSocketAddress());
 
 /*        in = client.getInputStream();
         out = client.getOutputStream();*/
 
-        BufferedReader inChannel = new BufferedReader(new InputStreamReader(client.getInputStream(), "UTF-8"));
-        BufferedWriter outChannel = new BufferedWriter(new OutputStreamWriter(client.getOutputStream(), "UTF-8"));
+            BufferedReader inChannel = new BufferedReader(new InputStreamReader(client.getInputStream(), "UTF-8"));
+            BufferedWriter outChannel = new BufferedWriter(new OutputStreamWriter(client.getOutputStream(), "UTF-8"));
 
-        System.out.println(inChannel.readLine());
-        outChannel.write("fuck you back client!\n");
-        outChannel.flush();
+            String msgFromClient;
+            while ((msgFromClient = inChannel.readLine()) != null){
 
-        client.close();
-        server.close();
+                System.out.println(msgFromClient);
+                outChannel.write("fuck you back client!\n");
+                outChannel.flush();
+
+            }
+
+        }
+
+
+
+
+       // server.close();
     }
 
 /*    private String recvAndSend(String response) throws IOException{
