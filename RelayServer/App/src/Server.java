@@ -33,4 +33,6 @@ public class Server {
 
         System.out.println("both thread finish executing");
     }
+
+
 }
