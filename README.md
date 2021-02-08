@@ -25,6 +25,8 @@
 -----
 
 ### TODO:
+- Java Server didn't work as intended, try Node.js server
+
 - in the loop, recv the actual tcp pose from the robot first and calculated the desired pos according to the actual tcp pose and the user movement
 - add an timer to tell apart two separate user movement sequence. process it in a way so robot can smooth out the movement at the start and end of each servoj sequence.
 - figure out: orientation conversion using degree or radian, currently using degree
@@ -39,6 +41,7 @@
 - [Optional] Connect from relay server the port 30003 to send raw servoj command, first send pos and recv inv_kin plan from robot regularly, then issue this raw servoj command.
 			 from the unity side, then we need finer granularity of movement.
 - [Optional] Further multithreading of relay server instead of one send-recv loop for each client.
+- Dynamic servoj time t, determined by the difference of movement.
 
 ### Pending:
 - Finish Implementing the Sphere Collider used to confine the VR tracker movement in order to prevent robot from moving to its pose limits and enter protective stop.

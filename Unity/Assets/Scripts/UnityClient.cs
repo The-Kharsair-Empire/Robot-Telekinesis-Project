@@ -19,7 +19,7 @@ public class UnityClient : MonoBehaviour
     private StreamReader inChannel;
     private StreamWriter outChannel;
 
-    private GameObject End_effector_virtual_plane;
+    //private GameObject End_effector_virtual_plane;
 
     private List<Action> trajectoryQueue;
     private Dictionary<int, char> link_index_to_axis_mapper;
@@ -47,6 +47,7 @@ public class UnityClient : MonoBehaviour
 
     public Vector3 previous_controller_pos;
     public Vector3 previous_tcp_pos;
+    public Quaternion previous_ee_orientation;
 
     
 
@@ -65,7 +66,10 @@ public class UnityClient : MonoBehaviour
         };
         //y, x, y, x, y, z
 
+        Debug.Log("Wait for host to response");
+
         client = new TcpClient(host_ip, host_port);
+        Debug.Log("Connected to relay server");
         stream = client.GetStream();
         inChannel = new StreamReader(client.GetStream());
         outChannel = new StreamWriter(client.GetStream());
@@ -78,23 +82,35 @@ public class UnityClient : MonoBehaviour
     {
         controller_endEffector_offset = Virtual_end_effector.transform.position - VRController.transform.position;
         previous_controller_pos = VRController.transform.position;
-        End_effector_virtual_plane = virtual_plane_on_tcp;
+        //End_effector_virtual_plane = virtual_plane_on_tcp;
+        previous_ee_orientation = virtual_plane_on_tcp.transform.rotation;
+
+        desired_pos = virtual_plane_on_tcp.transform.position;
+        Virtual_end_effector.transform.position = desired_pos;
+        //Virtual_end_effector.transform.rotation = End_effector_virtual_plane.transform.rotation;
+
+       /* desired_orientation_q =  Virtual_end_effector.transform.rotation * Quaternion.identity;
+        Virtual_end_effector.transform.rotation = desired_orientation_q;*/
     }
 
-    public void interact(GameObject virtual_plane_on_controller)
+    public void interact(GameObject virtual_plane_on_tcp)
     {
 
-        End_effector_virtual_plane.transform.position = virtual_plane_on_controller.transform.position + controller_endEffector_offset;
-        End_effector_virtual_plane.transform.rotation = virtual_plane_on_controller.transform.rotation;
+        virtual_plane_on_tcp.transform.position = VRController.transform.position + controller_endEffector_offset;
+        virtual_plane_on_tcp.transform.rotation = VRController.transform.rotation;
         controller_pos = VRController.transform.position;
         Vector3 actual_movement = controller_pos - previous_controller_pos;
-        desired_orientation_q = End_effector_virtual_plane.transform.rotation;
-        desired_orientation_e = End_effector_virtual_plane.transform.rotation.eulerAngles;
-        desired_pos = End_effector_virtual_plane.transform.position;
+        Quaternion rotation_diff = virtual_plane_on_tcp.transform.rotation * Quaternion.Inverse(previous_ee_orientation) ;
+        
+        desired_orientation_q = rotation_diff * Virtual_end_effector.transform.rotation;
+        desired_orientation_e = virtual_plane_on_tcp.transform.rotation.eulerAngles;
+        desired_pos = virtual_plane_on_tcp.transform.position;
+
         Virtual_end_effector.transform.position = desired_pos;
         Virtual_end_effector.transform.rotation = desired_orientation_q;
+        //Virtual_end_effector.transform.rotation = desired_orientation_q;
 
-        if (actual_movement.magnitude > 0.001) //0.01, 0.008
+        if (actual_movement.magnitude > 0.01) //0.01, 0.008
         {
             /*Vector3 actual_tcp_movement =  (VRtracker_TCP_offset + tracker_pos) - previous_tcp_pos;
             Vector3 wanted_tcp_movement = actual_tcp_movement / 10;
@@ -110,10 +126,10 @@ public class UnityClient : MonoBehaviour
 
             previous_controller_pos = controller_pos;
             // previous_tcp_pos = desired_pos;
-
+            
             //StartCoroutine(executeJointTrajectory());
         }
-
+        previous_ee_orientation = virtual_plane_on_tcp.transform.rotation;
 
         //transform.position = desired_pos;
 
@@ -142,6 +158,7 @@ public class UnityClient : MonoBehaviour
                 Action executeOneJointState = trajectoryQueue[0];
                 trajectoryQueue.RemoveAt(0);
 
+                Debug.Log("Trajectory Execute");
                 executeOneJointState();
                 yield return null;
             }
@@ -158,7 +175,7 @@ public class UnityClient : MonoBehaviour
         while (true)
         {
             double[] res = Recv6Tuple();
-
+            Debug.Log("JOINT STATE RECV");
             var joint_state_in_deg = new float[res.Length];
 
             Parallel.For(0, res.Length, i => joint_state_in_deg[i] = rad2deg(res[i]));
@@ -190,16 +207,16 @@ public class UnityClient : MonoBehaviour
         string res = inChannel.ReadLine();
         //res = HttpUtility.UrlDecode(res, Encoding.UTF8);
 
-        Debug.Log(res);
+       // Debug.Log(res);
         res = res.Trim(new char[] { '[', ']', 'p' });
-        Debug.Log(res);
+        //Debug.Log(res);
         string[] each_double = res.Split(',');
         double[] pose_result = new double[6];
         int i = 0;
         foreach (var each in each_double)
         {
             pose_result[i] = double.Parse(each);
-            Debug.Log(pose_result[i]);
+            //Debug.Log(pose_result[i]);
             i++;
         }
         return pose_result;
@@ -331,10 +348,10 @@ public class UnityClient : MonoBehaviour
             y /= s;
             z /= s;
         }
-
-        Debug.Log("orientation conversion result: " + z + " " + (-x) + " " + y );
+        Vector3 axisAngle = new Vector3((float)z, (float)-x, (float)y) * (float)angle;
+        Debug.Log("orientation conversion result: " + axisAngle);
         //should this be converted to radian?
-        return new Vector3((float)z, (float)-x, (float)y) * (float)angle;
+        return axisAngle;
     }
 
 
