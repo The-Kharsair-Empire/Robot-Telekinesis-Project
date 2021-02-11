@@ -120,14 +120,13 @@ public class UnityClient : MonoBehaviour
             Movement_indicator.transform.rotation = desired_orientation_q;
 
             string cmd = packCommand(desired_pos, desired_orientation_q);
-            Debug.Log("pos sent to relay server: " + cmd);
+            //Debug.Log("pos sent to relay server: " + cmd);
             outChannel.Write(cmd);
             outChannel.Flush();
 
             previous_controller_pos = controller_pos;
             // previous_tcp_pos = desired_pos;
-            
-            //StartCoroutine(executeJointTrajectory());
+
         }
         previous_ee_orientation = virtual_plane_on_tcp.transform.rotation;
 
@@ -136,18 +135,7 @@ public class UnityClient : MonoBehaviour
         diaplayControllerPosInfo();
     }
 
-   /* private IEnumerator executeJointTrajectory()
-    {
-        while (trajectoryQueue.Count > 0)
-        {
-            Action executeOneJointState = trajectoryQueue[0];
-            trajectoryQueue.RemoveAt(0);
 
-            executeOneJointState();
-            yield return null;
-        }
-        
-    }*/
 
     private IEnumerator executeJointTrajectory()
     {
@@ -158,9 +146,9 @@ public class UnityClient : MonoBehaviour
                 Action executeOneJointState = trajectoryQueue[0];
                 trajectoryQueue.RemoveAt(0);
 
-                Debug.Log("Trajectory Execute");
+                //Debug.Log("Trajectory Execute");
                 executeOneJointState();
-                yield return null;
+                //yield return null;
             }
             yield return null;
         }
@@ -174,17 +162,17 @@ public class UnityClient : MonoBehaviour
     {
         while (true)
         {
-            double[] res = Recv6Tuple();
-            Debug.Log("JOINT STATE RECV");
-            var joint_state_in_deg = new float[res.Length];
-
-            Parallel.For(0, res.Length, i => joint_state_in_deg[i] = rad2deg(res[i]));
+            float[] res = Recv6Tuple();
+          /*  res[2] += 263.208458;
+            res[3] += 83.968;*/
+            //Debug.Log("JOINT STATE RECV");
+           
 
             Action executeOneJointState = () =>
             {
-                for (int i = 0; i < joint_state_in_deg.Length; i++)
+                for (int i = 0; i < res.Length; i++)
                 {
-                    move(joint_links[i], i, joint_state_in_deg[i]);
+                    move(joint_links[i], i,  res[i]);
                 }
             };
 
@@ -202,20 +190,25 @@ public class UnityClient : MonoBehaviour
         Debug.Log("Client close");
     }
 
-    private double[] Recv6Tuple()
+    private float[] Recv6Tuple()
     {
         string res = inChannel.ReadLine();
         //res = HttpUtility.UrlDecode(res, Encoding.UTF8);
-
+        print("Res was " + res);
        // Debug.Log(res);
         res = res.Trim(new char[] { '[', ']', 'p' });
         //Debug.Log(res);
         string[] each_double = res.Split(',');
-        double[] pose_result = new double[6];
+        float[] pose_result = new float[6];
         int i = 0;
         foreach (var each in each_double)
         {
-            pose_result[i] = double.Parse(each);
+            /*print("Parsing");
+            print("each was  "  + each);*/
+            pose_result[i] = float.Parse(each);
+            //print("pose result was " +pose_result[i]);
+            pose_result[i] = rad2deg(pose_result[i]);// no need if return 6 tuple has p[]
+           // print("Pose result is " + pose_result[i]);
             //Debug.Log(pose_result[i]);
             i++;
         }
@@ -228,21 +221,23 @@ public class UnityClient : MonoBehaviour
         char move_which_axis;
         if (link_index_to_axis_mapper.TryGetValue(of_index, out move_which_axis))
         {
-            Debug.Log("rotating joint of index: " + of_index + " along: " + move_which_axis + " axis, to degree: " + to);
+           // Debug.Log("rotating joint of index: " + of_index + " along: " + move_which_axis + " axis, to degree: " + to);
             if (move_which_axis == 'x')
             {
-                Debug.Log(move_which_axis);
-                joint_link.transform.rotation = Quaternion.Euler(to, joint_link.transform.rotation.eulerAngles.y, joint_link.transform.rotation.eulerAngles.z);
+                //Debug.Log(move_which_axis);
+                print("x Was " + joint_link.transform.localRotation.eulerAngles.x);
+                joint_link.transform.localRotation = Quaternion.Euler(to, joint_link.transform.localRotation.eulerAngles.y, joint_link.transform.localRotation.eulerAngles.z);
+                print("x is " + joint_link.transform.localRotation.eulerAngles.x);
             }
             else if (move_which_axis == 'y')
             {
-                Debug.Log(move_which_axis);
-                joint_link.transform.rotation = Quaternion.Euler(joint_link.transform.rotation.eulerAngles.x, to, joint_link.transform.rotation.eulerAngles.z);
+                //Debug.Log(move_which_axis);
+                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, to, joint_link.transform.localRotation.eulerAngles.z);
             }
             else if (move_which_axis == 'z')
             {
-                Debug.Log(move_which_axis);
-                joint_link.transform.rotation = Quaternion.Euler(joint_link.transform.rotation.eulerAngles.x, joint_link.transform.rotation.eulerAngles.y, to);
+                //Debug.Log(move_which_axis);
+                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, joint_link.transform.localRotation.eulerAngles.y, to);
             }
         }
         else
@@ -260,7 +255,7 @@ public class UnityClient : MonoBehaviour
 
 
         string pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
-            + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z + ")\n";
+            + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z + ")";
         return pose_6_tuple;
     }
 
@@ -281,8 +276,8 @@ public class UnityClient : MonoBehaviour
     }
     private float rad2deg(double rad)
     {
-        Debug.Log("was: " + rad);
-        Debug.Log("is " + (float)(180 * rad / Math.PI));
+    /*    Debug.Log("was: " + rad);
+        Debug.Log("is " + (float)(180 * rad / Math.PI));*/
         return (float)(180 * rad / Math.PI);
 
     }
@@ -349,7 +344,7 @@ public class UnityClient : MonoBehaviour
             z /= s;
         }
         Vector3 axisAngle = new Vector3((float)z, (float)-x, (float)y) * (float)angle;
-        Debug.Log("orientation conversion result: " + axisAngle);
+        //Debug.Log("orientation conversion result: " + axisAngle);
         //should this be converted to radian?
         return axisAngle;
     }

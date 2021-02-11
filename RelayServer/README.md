@@ -6,4 +6,4 @@
 
 -----
 ## How to Use:
-### Just run this java project prior to running the robot URscript and the Unity Project
+### Just run this javascript app prior to running the robot URscript and the Unity Project
