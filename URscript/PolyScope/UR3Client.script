@@ -19,11 +19,9 @@ end
 targetPos=p[0,0,0,0,0,0]
 
 counter=0
-## TODO: create a second thread that connect to port 22 and send joint info in that thread, in main thread: port 21, send pos info, then receive pos, then calculate inverse kin and send back the plan
 
 
 while (True):
-    socket_send_string(get_actual_tcp_pose())
 
     receiveFromServ=socket_read_ascii_float(6)
 
@@ -46,16 +44,14 @@ while (True):
 
     target_joint_pose = get_inverse_kin(targetPos, current_joint_positions) #  pass in a qnear opitonal parameter (second param) which specify the solution should be near which joint position
     #movej(target_joint_pose, 1.5, 0.5, 0, 0)
-    socket_send_string(target_joint_pose)
 
-    #servoj(target_joint_pose, 0, 0, 0.1, 0.5, 300)
-    
+    servoj(target_joint_pose, 0, 0, 0.1, 0.5, 300)
 
     #movej(targetPos, a=1.3962634015954636, v=1.0471975511965976)
     #sleep(0.2)
 
 
-    #socket_send_string(get_actual_joint_positions())
+    socket_send_string(get_actual_joint_positions())
 
 
     #socket_send_string(get_actual_tcp_pose())

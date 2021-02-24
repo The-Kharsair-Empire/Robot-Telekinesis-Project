@@ -13,16 +13,11 @@ using System.Threading.Tasks;
 public class UnityClient : MonoBehaviour
 {
     
-    private TcpClient client1;
-    private TcpClient client2;
-    private NetworkStream stream1;
-    private NetworkStream stream2;
+    private TcpClient client;
+    private NetworkStream stream;
 
-    private StreamReader inChannel1;
-    private StreamWriter outChannel1;
-    
-    private StreamReader inChannel2;
-    private StreamWriter outChannel2;
+    private StreamReader inChannel;
+    private StreamWriter outChannel;
 
     //private GameObject End_effector_virtual_plane;
 
@@ -30,13 +25,11 @@ public class UnityClient : MonoBehaviour
     private Dictionary<int, char> link_index_to_axis_mapper;
 
     public string host_ip = "localhost";
-    public int host_port_1 = 27;
-    public int host_port_2 = 28;
+    public int host_port = 27;
 
     public GameObject VRController;
     public GameObject Virtual_end_effector;
     public GameObject Movement_indicator; //assigned a cube of different color to Virtual_end_effector
-    public GameObject RobotPos_indicator;
 
 
     public GameObject UR3;
@@ -62,7 +55,6 @@ public class UnityClient : MonoBehaviour
     void Start()
     {
         trajectoryQueue = new List<Action>();
-       // robotPosQueue = new List<float[]>();
 
         link_index_to_axis_mapper = new Dictionary<int, char>() {
             {0, 'y' },
@@ -74,22 +66,16 @@ public class UnityClient : MonoBehaviour
         };
         //y, x, y, x, y, z
 
-        print("Wait for host to response");
+        Debug.Log("Wait for host to response");
 
-        client1 = new TcpClient(host_ip, host_port_1);
-        client2 = new TcpClient(host_ip, host_port_2);
-        print("Connected to relay server");
-        stream1 = client1.GetStream();
-        stream2 = client2.GetStream();
-        inChannel1 = new StreamReader(client1.GetStream());
-        outChannel1 = new StreamWriter(client1.GetStream());
-        
-        inChannel2 = new StreamReader(client2.GetStream());
-        outChannel2 = new StreamWriter(client2.GetStream());
+        client = new TcpClient(host_ip, host_port);
+        Debug.Log("Connected to relay server");
+        stream = client.GetStream();
+        inChannel = new StreamReader(client.GetStream());
+        outChannel = new StreamWriter(client.GetStream());
 
         new Thread(new ThreadStart(recvJointStateLoop)).Start();
         StartCoroutine(executeJointTrajectory());
-  
     }
 
     public void activate(GameObject virtual_plane_on_tcp)
@@ -109,9 +95,6 @@ public class UnityClient : MonoBehaviour
 
     public void interact(GameObject virtual_plane_on_tcp)
     {
-        float[] actual_pos;
-        Recv6Tuple(inChannel1, out actual_pos);
-        RobotPos_indicator.transform.position = new Vector3(actual_pos[0], actual_pos[1], actual_pos[2]);
 
         virtual_plane_on_tcp.transform.position = VRController.transform.position + controller_endEffector_offset;
         virtual_plane_on_tcp.transform.rotation = VRController.transform.rotation;
@@ -120,7 +103,7 @@ public class UnityClient : MonoBehaviour
         Quaternion rotation_diff = virtual_plane_on_tcp.transform.rotation * Quaternion.Inverse(previous_ee_orientation) ;
         
         desired_orientation_q = rotation_diff * Virtual_end_effector.transform.rotation;
-       // desired_orientation_e = virtual_plane_on_tcp.transform.rotation.eulerAngles;
+        desired_orientation_e = virtual_plane_on_tcp.transform.rotation.eulerAngles;
         desired_pos = virtual_plane_on_tcp.transform.position;
 
         Virtual_end_effector.transform.position = desired_pos;
@@ -139,8 +122,8 @@ public class UnityClient : MonoBehaviour
 
             string cmd = packCommand(desired_pos, desired_orientation_q);
             //Debug.Log("pos sent to relay server: " + cmd);
-            outChannel1.Write(cmd);
-            outChannel1.Flush();
+            outChannel.Write(cmd);
+            outChannel.Flush();
 
             previous_controller_pos = controller_pos;
             // previous_tcp_pos = desired_pos;
@@ -180,53 +163,44 @@ public class UnityClient : MonoBehaviour
     {
         while (true)
         {
-            float[] res;
-            Recv6Tuple(inChannel2, out res);
+            float[] res = Recv6Tuple();
           /*  res[2] += 263.208458;
             res[3] += 83.968;*/
             //Debug.Log("JOINT STATE RECV");
-            
+           
+
             Action executeOneJointState = () =>
             {
                 for (int i = 0; i < res.Length; i++)
                 {
-                    move(joint_links[i], i, res[i]);
+                    move(joint_links[i], i,  res[i]);
                 }
             };
 
             trajectoryQueue.Add(executeOneJointState);
-            
-
         }
 
     }
 
     void OnDestroy()
     {
-        inChannel1.Close();
-        outChannel1.Close();
-        stream1.Close();
-        client1.Close();
-
-        inChannel2.Close();
-        outChannel2.Close();
-        stream2.Close();
-        client2.Close();
+        inChannel.Close();
+        outChannel.Close();
+        stream.Close();
+        client.Close();
         Debug.Log("Client close");
     }
 
-    private bool Recv6Tuple(StreamReader inChannel, out float[] pose_result)
+    private float[] Recv6Tuple()
     {
         string res = inChannel.ReadLine();
         //res = HttpUtility.UrlDecode(res, Encoding.UTF8);
         print("Res was " + res);
-        pose_result = new float[6];
-    
        // Debug.Log(res);
         res = res.Trim(new char[] { '[', ']', 'p' });
         //Debug.Log(res);
         string[] each_double = res.Split(',');
-        //float[] pose_result = new float[6];
+        float[] pose_result = new float[6];
         int i = 0;
         foreach (var each in each_double)
         {
@@ -239,7 +213,7 @@ public class UnityClient : MonoBehaviour
             //Debug.Log(pose_result[i]);
             i++;
         }
-        return true;
+        return pose_result;
 
     }
 
@@ -252,9 +226,9 @@ public class UnityClient : MonoBehaviour
             if (move_which_axis == 'x')
             {
                 //Debug.Log(move_which_axis);
-                //print("x Was " + joint_link.transform.localRotation.eulerAngles.x);
+                print("x Was " + joint_link.transform.localRotation.eulerAngles.x);
                 joint_link.transform.localRotation = Quaternion.Euler(to, joint_link.transform.localRotation.eulerAngles.y, joint_link.transform.localRotation.eulerAngles.z);
-                //print("x is " + joint_link.transform.localRotation.eulerAngles.x);
+                print("x is " + joint_link.transform.localRotation.eulerAngles.x);
             }
             else if (move_which_axis == 'y')
             {
@@ -280,23 +254,13 @@ public class UnityClient : MonoBehaviour
 
         Vector3 axisAngle = Quaternion2axisAngle(desired_orientation);
 
-        float angle = 0.0f;
-        Vector3 axis = Vector3.zero;
-        desired_orientation.ToAngleAxis(out angle, out axis);
-
-        Vector3 unityAxisAngle = new Vector3(axis.z, -axis.x, axis.y) * angle;
-/*
-        print("my axis angle: " + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z);
-        print("unity axis angle: " + unityAxisAngle.x + "," + unityAxisAngle.y + "," + unityAxisAngle.z);
-*/
-
 
         string pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
             + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z + ")";
         return pose_6_tuple;
     }
 
-   /* private string packCommand(Vector3 desired_pos, Vector3 desired_orientation)
+    private string packCommand(Vector3 desired_pos, Vector3 desired_orientation)
     {
 
         double x = desired_pos.z;
@@ -310,7 +274,7 @@ public class UnityClient : MonoBehaviour
         string pose_6_tuple = "(" + x + "," + y + "," + z + ","
             + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z + ")\n";
         return pose_6_tuple;
-    }*/
+    }
     private float rad2deg(double rad)
     {
     /*    Debug.Log("was: " + rad);
@@ -331,7 +295,7 @@ public class UnityClient : MonoBehaviour
         return new Vector3(RUF.z, -RUF.x, RUF.y);
     }
 
-   /* private Vector3 Eular2axisAngle(double theta, double phi, double psi) //RUF 2 FLU conversion is done
+    private Vector3 Eular2axisAngle(double theta, double phi, double psi) //RUF 2 FLU conversion is done
     {
         double c1 = Math.Cos(theta / 2);
         double s1 = Math.Sin(theta / 2);
@@ -362,7 +326,7 @@ public class UnityClient : MonoBehaviour
         }
 
         return new Vector3((float)z, (float)-x, (float)y) * (float)angle;
-    }*/
+    }
 
     private Vector3 Quaternion2axisAngle(Quaternion orientation) //RUF 2 FLU conversion is done
     {
