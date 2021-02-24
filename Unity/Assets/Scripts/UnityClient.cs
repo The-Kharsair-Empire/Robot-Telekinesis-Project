@@ -125,6 +125,7 @@ public class UnityClient : MonoBehaviour
 
         Virtual_end_effector.transform.position = desired_pos;
         Virtual_end_effector.transform.rotation = desired_orientation_q;
+    
         //Virtual_end_effector.transform.rotation = desired_orientation_q;
 
         if (actual_movement.magnitude > 0.01) //0.01, 0.008
