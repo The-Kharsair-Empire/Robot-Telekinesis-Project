@@ -22,6 +22,19 @@ const unity_client_handle_secondary = net.createServer().listen(unity_port_secon
     console.log("Start listening from unity on port " + unity_port_secondary);
 });
 
+var robot_cmd_client = null;
+
+const robot_cmd_client_handle = new net.Socket();
+robot_cmd_client_handle.connect(30003, '192.168.0.143', () => {
+    console.log("connect to robot via 30003");
+    robot_cmd_client = robot_cmd_client_handle;
+
+})
+
+robot_cmd_client_handle.on('close', (data) => {
+    console.log('port 30003 connection lost');
+    robot_cmd_client = null;
+});
 
 var robot_client_primary = null;
 var robot_client_secondary = null;
@@ -31,7 +44,7 @@ var unity_client_secondary = null;
 
 robot_client_handle_secondary.on('connection', (robot_client_socket) => {
     robot_client_secondary= robot_client_socket;
-    console.log("Connection: from robot primary: " + robot_client_secondary.remoteAddress + ' : ' + robot_client_secondary.remotePort);
+    console.log("Connection: from robot secondary: " + robot_client_secondary.remoteAddress + ' : ' + robot_client_secondary.remotePort);
 
     robot_client_socket.on('data', (data) => {
         console.log("receive joint state from robot: " + data);
@@ -42,42 +55,45 @@ robot_client_handle_secondary.on('connection', (robot_client_socket) => {
     });
 
     robot_client_socket.on('error', (err) => {
-        console.log('error from robot primary: ' + err);
+        console.log('error from robot secondary: ' + err);
     })
 
     robot_client_socket.on('close', (data) => {
         robot_client_secondary = null;
-        console.log("robot client primary disconnected: " + data);
+        console.log("robot client secondary disconnected: " + data);
     });
 });
 
 robot_client_handle_primary.on('connection', (robot_client_socket) => {
     robot_client_primary = robot_client_socket;
-    console.log("Connection: from robot secondary: " + robot_client_primary.remoteAddress + ' : ' + robot_client_primary.remotePort);
+    console.log("Connection: from robot primary: " + robot_client_primary.remoteAddress + ' : ' + robot_client_primary.remotePort);
 
     robot_client_socket.on('data', (data) => {
         
-        if (data[0] == "p") {
-            console.log("receive actual pos from robot: " + data);
-            if (unity_client_primary != null) {
-                unity_client_primary.write(data + '\n');
-                console.log("relaying pos to unity primary: " + data);
-            }
-        }else {
+        // if (data.slice(0, 1) == "p") {
+        //     console.log("receive actual pos from robot: " + data);
+        //     if (unity_client_primary != null) {
+        //         unity_client_primary.write(data + '\n');
+        //         console.log("relaying pos to unity primary: " + data);
+        //     }
+        // }else {
             console.log("receive inverse kinematic plan from robot: " + data);
+            if (robot_cmd_client != null) {
+                robot_cmd_client.write("servoj(" + data + ", 0, 0, 0.1, 0.5, 300)\n")
+            }
             //handle inverse kinematics by sending back servoj to robot
-        }
+        // }
         
 
     })
 
     robot_client_socket.on('error', (err) => {
-        console.log('error from robot secondary: ' + err);
+        console.log('error from robot primary: ' + err);
     })
 
     robot_client_socket.on('close', (data) => {
         robot_client_primary = null;
-        console.log("robot client secondary disconnected: " + data);
+        console.log("robot client primary disconnected: " + data);
     });
 });
 

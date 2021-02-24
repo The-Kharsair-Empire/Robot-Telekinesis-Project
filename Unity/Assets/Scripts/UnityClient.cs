@@ -109,9 +109,9 @@ public class UnityClient : MonoBehaviour
 
     public void interact(GameObject virtual_plane_on_tcp)
     {
-        float[] actual_pos;
+        /*float[] actual_pos;
         Recv6Tuple(inChannel1, out actual_pos);
-        RobotPos_indicator.transform.position = new Vector3(actual_pos[0], actual_pos[1], actual_pos[2]);
+        RobotPos_indicator.transform.position = new Vector3(actual_pos[0], actual_pos[1], actual_pos[2]);*/
 
         virtual_plane_on_tcp.transform.position = VRController.transform.position + controller_endEffector_offset;
         virtual_plane_on_tcp.transform.rotation = VRController.transform.rotation;
@@ -171,7 +171,6 @@ public class UnityClient : MonoBehaviour
             yield return null;
         }
         
-
     }
 
 

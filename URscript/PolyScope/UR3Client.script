@@ -1,4 +1,3 @@
-
 set_standard_analog_input_domain(0, 1)
 set_standard_analog_input_domain(1, 1)
 set_tool_analog_input_domain(0, 1)
@@ -10,10 +9,25 @@ set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
 set_payload(0.0)
 set_gravity([0.0, 0.0, 9.82])
 
-open=socket_open("192.168.0.192",21)
+thread joint_sending_thread():
+    open=socket_open("192.168.0.192",22, "socket_2")
+  
+    while (open ==  False  ):
+        open=socket_open("192.168.0.192",22, "socket_2")
+    end
+  
+    while (True):
+      socket_send_string(get_actual_joint_positions(), "socket_2")
+      sleep(0.8)
+    end
+  
+end
+thrd = run joint_sending_thread()
+
+open=socket_open("192.168.0.192",21, "socket_1")
 
 while (open ==  False  ):
-    open=socket_open("192.168.0.192",21)
+    open=socket_open("192.168.0.192",21, "socket_1")
 end
 
 targetPos=p[0,0,0,0,0,0]
@@ -23,7 +37,7 @@ counter=0
 
 
 while (True):
-    socket_send_string(get_actual_tcp_pose())
+    socket_send_string(get_actual_tcp_pose(), "socket_1")
 
     receiveFromServ=socket_read_ascii_float(6)
 
@@ -46,7 +60,7 @@ while (True):
 
     target_joint_pose = get_inverse_kin(targetPos, current_joint_positions) #  pass in a qnear opitonal parameter (second param) which specify the solution should be near which joint position
     #movej(target_joint_pose, 1.5, 0.5, 0, 0)
-    socket_send_string(target_joint_pose)
+    socket_send_string(target_joint_pose, "socket_1")
 
     #servoj(target_joint_pose, 0, 0, 0.1, 0.5, 300)
     
@@ -62,8 +76,5 @@ while (True):
     
 end
 
-  
-# def send_6_tuple(6_tuple):
 
-# end
 
