@@ -20,8 +20,9 @@ targetPos=p[0,0,0,0,0,0]
 
 counter=0
 
-
 while (True):
+
+    socket_send_string(get_actual_tcp_pose())
 
     receiveFromServ=socket_read_ascii_float(6)
 
@@ -40,26 +41,15 @@ while (True):
     end
     counter=0
 
-    current_joint_positions = get_actual_joint_positions()
-
-    target_joint_pose = get_inverse_kin(targetPos, current_joint_positions) #  pass in a qnear opitonal parameter (second param) which specify the solution should be near which joint position
+    target_joint_pose = get_inverse_kin(targetPos, get_actual_joint_positions()) 
     #movej(target_joint_pose, 1.5, 0.5, 0, 0)
 
     servoj(target_joint_pose, 0, 0, 0.1, 0.5, 300)
 
-    #movej(targetPos, a=1.3962634015954636, v=1.0471975511965976)
-    #sleep(0.2)
-
 
     socket_send_string(get_actual_joint_positions())
 
-
-    #socket_send_string(get_actual_tcp_pose())
     
 end
 
-  
-# def send_6_tuple(6_tuple):
-
-# end
 
