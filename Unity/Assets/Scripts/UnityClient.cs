@@ -154,10 +154,13 @@ public class UnityClient : MonoBehaviour
         virtual_plane_on_tcp.transform.rotation = VRController.transform.rotation;
         controller_pos = VRController.transform.position;
         Vector3 actual_movement = controller_pos - previous_controller_pos;
-        Quaternion rotation_diff = virtual_plane_on_tcp.transform.rotation * Quaternion.Inverse(previous_ee_orientation);
 
+        Quaternion rotation_diff = virtual_plane_on_tcp.transform.rotation * Quaternion.Inverse(previous_ee_orientation);
         desired_orientation_q = rotation_diff * Virtual_end_effector.transform.rotation;
         desired_orientation_e = virtual_plane_on_tcp.transform.rotation.eulerAngles;
+
+
+        //desired_pos = RobotPos + actual_movement;
         desired_pos = virtual_plane_on_tcp.transform.position;
 
         Virtual_end_effector.transform.position = desired_pos;
@@ -174,7 +177,7 @@ public class UnityClient : MonoBehaviour
             Movement_indicator.transform.position = desired_pos;
             Movement_indicator.transform.rotation = desired_orientation_q;
 
-            string cmd = packCommand(desired_pos, desired_orientation_q);
+            string cmd = packCommand(desired_pos, desired_orientation_q, actual_movement.magnitude);
             //Debug.Log("pos sent to relay server: " + cmd);
             outChannel.Write(cmd);
             outChannel.Flush();
@@ -333,7 +336,7 @@ public class UnityClient : MonoBehaviour
         }
     }
 
-    private string packCommand(Vector3 desired_pos, Quaternion desired_orientation)
+    private string packCommand(Vector3 desired_pos, Quaternion desired_orientation, float movement_length)
     {
 
         Vector3 FLU = Unity2RobotCoor(desired_pos);
@@ -341,16 +344,25 @@ public class UnityClient : MonoBehaviour
         Vector3 axisAngle = Quaternion2axisAngle(desired_orientation);
         /*float angle;
         Vector3 axis;
+        
 
         desired_orientation.ToAngleAxis(out angle, out axis);
         axisAngle = new Vector3(axis.z, -axis.x, axis.y) * angle;*/
-
+        float t = 0.1f; blocking_time_bound(movement_length); //0.1f; 
+        float lk_ahead_t = 0.5f; blocking_time_bound(movement_length); //0.5f;
 
         string pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
-            + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z + ")";
-        pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
-            + 0.0 + "," + 0.0 + "," + 0.0 + ")";
+            + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z+ ","
+           + t + "," + lk_ahead_t + ")";
+       /* pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
+            + 0.0 + "," + 0.0 + "," + 0.0 + ","
+            + t + "," + lk_ahead_t + ")";*/
         return pose_6_tuple;
+    }
+
+    private float blocking_time_bound(float x)
+    {
+        return (float) Math.Log10(3 * x + 1);
     }
 
    /* private string packCommand(Vector3 desired_pos, Vector3 desired_orientation)

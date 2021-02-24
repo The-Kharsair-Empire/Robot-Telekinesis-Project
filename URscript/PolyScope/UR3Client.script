@@ -18,19 +18,23 @@ end
 
 targetPos=p[0,0,0,0,0,0]
 
+t = 0
+
+lk_a_t = 0
+
 counter=0
 
 while (True):
 
     socket_send_string(get_actual_tcp_pose())
 
-    receiveFromServ=socket_read_ascii_float(6)
+    receiveFromServ=socket_read_ascii_float(8)
 
-    while (receiveFromServ[0] !=6):
+    while (receiveFromServ[0] !=8):
 
         sleep(0.3)
     
-        receiveFromServ=socket_read_ascii_float(6)
+        receiveFromServ=socket_read_ascii_float(8)
     end
 
     while (counter <6):
@@ -39,12 +43,14 @@ while (True):
 
         counter=counter+1
     end
+    t = receiveFromServ[counter + 1]
+    lk_a_t = receiveFromServ[counter + 2]
     counter=0
 
     target_joint_pose = get_inverse_kin(targetPos, get_actual_joint_positions()) 
     #movej(target_joint_pose, 1.5, 0.5, 0, 0)
 
-    servoj(target_joint_pose, 0, 0, 0.1, 0.5, 300)
+    servoj(target_joint_pose, 0, 0, t, lk_a_t, 300)
 
 
     socket_send_string(get_actual_joint_positions())
