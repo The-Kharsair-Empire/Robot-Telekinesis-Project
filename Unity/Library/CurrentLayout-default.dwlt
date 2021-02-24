@@ -19,9 +19,15 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
+=======
+  m_Title: Scene
+  m_RootView: {fileID: 7}
+  m_MinSize: {x: 875, y: 392}
+>>>>>>> parent of b5531ba... fri pack up
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -43,6 +49,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 947
   m_MinSize: {x: 579, y: 492}
@@ -50,6 +57,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 126
 --- !u!114 &3
+=======
+    width: 2560
+    height: 1307.3334
+  m_MinSize: {x: 678, y: 342}
+  m_MaxSize: {x: 12003, y: 8042}
+  vertical: 0
+  controlID: 48
+--- !u!114 &4
+>>>>>>> parent of b5531ba... fri pack up
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,12 +127,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 480
     width: 1373
     height: 467
@@ -129,6 +146,20 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &6
+=======
+    y: 662.6667
+    width: 1831.3334
+    height: 644.6667
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 20}
+  m_Panes:
+  - {fileID: 16}
+  - {fileID: 20}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &7
+>>>>>>> parent of b5531ba... fri pack up
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +179,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 997
   m_MinSize: {x: 875, y: 300}
+=======
+    width: 2560
+    height: 1357.3334
+  m_MinSize: {x: 875, y: 392}
+>>>>>>> parent of b5531ba... fri pack up
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -221,6 +258,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1373
     height: 947
   m_MinSize: {x: 303, y: 492}
@@ -228,6 +266,15 @@ MonoBehaviour:
   vertical: 1
   controlID: 98
 --- !u!114 &10
+=======
+    width: 1831.3334
+    height: 1307.3334
+  m_MinSize: {x: 403, y: 342}
+  m_MaxSize: {x: 8003, y: 8042}
+  vertical: 1
+  controlID: 49
+--- !u!114 &11
+>>>>>>> parent of b5531ba... fri pack up
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,8 +298,13 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 99
 --- !u!114 &11
+=======
+  controlID: 50
+--- !u!114 &12
+>>>>>>> parent of b5531ba... fri pack up
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,9 +529,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 553
     width: 1372
     height: 446
+=======
+    y: 977.3334
+    width: 1952.3334
+    height: 381.6667
+>>>>>>> parent of b5531ba... fri pack up
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -507,9 +565,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 42400000
     m_LastClickedID: 16450
     m_ExpandedIDs: 000000002a40000000ca9a3b
+=======
+    m_SelectedIDs: da480000
+    m_LastClickedID: 18650
+    m_ExpandedIDs: 000000004440000000ca9a3b
+>>>>>>> parent of b5531ba... fri pack up
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Scripts
@@ -658,9 +722,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 4e090000
       m_LastClickedID: 0
       m_ExpandedIDs: 52fbffff
+=======
+      m_SelectedIDs: a23d0000aa3d0000c23d0000f43d00000e3e0000223e0000
+      m_LastClickedID: 15906
+      m_ExpandedIDs: 28fbffff2afbffffd03d0000063e00000a3e00002a3e0000463e00005c3e0000803e0000723f00008a3f0000
+>>>>>>> parent of b5531ba... fri pack up
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
