@@ -75,10 +75,10 @@ public class UnityClient : MonoBehaviour
 
         link_offset = new Dictionary<int, float>()
         {
-            {0, 101.269f},
-            {1, 0.0f},
+            {0, 85.269f},
+            {1, 13.0f},
             {2, 89.8f},
-            {3, 86.166f},//-126.639f},
+            {3, -90.2f},//-126.639f},86.166f
             {4, 180.639f},
             {5, 0},
 
@@ -86,7 +86,7 @@ public class UnityClient : MonoBehaviour
 
         link_direction = new Dictionary<int, int>()
         {
-            {0, -1},
+            {0, -1}, //-1
             {1, 1},
             {2, -1},
             {3, 1},
@@ -316,18 +316,28 @@ public class UnityClient : MonoBehaviour
             {
                 //Debug.Log(move_which_axis);
                 //print("x Was " + joint_link.transform.localRotation.eulerAngles.x);
-                joint_link.transform.localRotation = Quaternion.Euler(to * direction + offset, joint_link.transform.localRotation.eulerAngles.y, joint_link.transform.localRotation.eulerAngles.z);
+                /*if (of_index == 3)
+                {
+                    joint_link.transform.localRotation = Quaternion.Euler(to + offset, joint_link.transform.localRotation.eulerAngles.y, joint_link.transform.localRotation.eulerAngles.z);
+
+                }
+                else
+                {*/
+                joint_link.transform.localRotation = Quaternion.Euler((to * direction) + offset, joint_link.transform.localRotation.eulerAngles.y, joint_link.transform.localRotation.eulerAngles.z);
+
+                /*}*/
+
                 //print("x is " + joint_link.transform.localRotation.eulerAngles.x);
             }
             else if (move_which_axis == 'y')
             {
                 //Debug.Log(move_which_axis);
-                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, to * direction + offset, joint_link.transform.localRotation.eulerAngles.z);
+                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, (to * direction) + offset, joint_link.transform.localRotation.eulerAngles.z);
             }
             else if (move_which_axis == 'z')
             {
                 //Debug.Log(move_which_axis);
-                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, joint_link.transform.localRotation.eulerAngles.y, to * direction + offset);
+                joint_link.transform.localRotation = Quaternion.Euler(joint_link.transform.localRotation.eulerAngles.x, joint_link.transform.localRotation.eulerAngles.y, (to * direction) + offset);
             }
         }
         else
@@ -348,21 +358,21 @@ public class UnityClient : MonoBehaviour
 
         desired_orientation.ToAngleAxis(out angle, out axis);
         axisAngle = new Vector3(axis.z, -axis.x, axis.y) * angle;*/
-        float t = 0.1f; blocking_time_bound(movement_length); //0.1f; 
-        float lk_ahead_t = 0.5f; blocking_time_bound(movement_length); //0.5f;
+        float t = 0.1f;// blocking_time_bound(movement_length); //0.1f; 
+        float lk_ahead_t = 0.5f; //blocking_time_bound(movement_length); //0.5f;
 
         string pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
             + axisAngle.x + "," + axisAngle.y + "," + axisAngle.z+ ","
            + t + "," + lk_ahead_t + ")";
-       /* pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
-            + 0.0 + "," + 0.0 + "," + 0.0 + ","
-            + t + "," + lk_ahead_t + ")";*/
+        pose_6_tuple = "(" + FLU.x + "," + FLU.y + "," + FLU.z + ","
+            + 3.1 + "," + 0.0 + "," + 0.0 + ","
+            + t + "," + lk_ahead_t + ")";
         return pose_6_tuple;
     }
 
     private float blocking_time_bound(float x)
     {
-        return (float) Math.Log10(3 * x + 1);
+        return (float) Math.Log(3 * x + 1); //find the base of log?
     }
 
    /* private string packCommand(Vector3 desired_pos, Vector3 desired_orientation)
